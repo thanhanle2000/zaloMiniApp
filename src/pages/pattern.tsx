@@ -2,25 +2,25 @@ import { ProductItem } from "components/product/item";
 import React, { FC, Suspense } from "react";
 import { useRecoilValue } from "recoil";
 import {
-  categoriesState,
+  patternsState,
   productsByCategoryState,
-  selectedCategoryIdState,
+  selectedPatternIdState,
 } from "state";
 import { Box, Header, Page, Tabs, Text } from "zmp-ui";
 
 const CategoryPicker: FC = () => {
-  const categories = useRecoilValue(categoriesState);
-  const selectedCategory = useRecoilValue(selectedCategoryIdState);
+  const patterns = useRecoilValue(patternsState);
+  const selectedPattern = useRecoilValue(selectedPatternIdState);
   return (
     <Tabs
       scrollable
-      defaultActiveKey={selectedCategory}
+      defaultActiveKey={selectedPattern}
       className="category-tabs"
     >
-      {categories.filter(category => category.type === "products").map((category) => (
-        <Tabs.Tab key={category.id} label={category.name}>
+      {patterns.map((pattern) => (
+        <Tabs.Tab key={pattern.id} label={pattern.lable}>
           <Suspense>
-            <CategoryProducts categoryId={category.id} />
+            <CategoryProducts categoryId={pattern.lable} />
           </Suspense>
         </Tabs.Tab>
       ))}
@@ -51,13 +51,13 @@ const CategoryProducts: FC<{ categoryId: string }> = ({ categoryId }) => {
   );
 };
 
-const CategoryPage: FC = () => {
+const PatternPage: FC = () => {
   return (
     <Page className="flex flex-col">
-      <Header backgroundColor="#0068b2" textColor="white" title=" DANH MỤC SẢN PHẨM " />
+      <Header backgroundColor="#0068b2" textColor="white" title=" MẪU MÃ " />
       <CategoryPicker />
     </Page>
   );
 };
 
-export default CategoryPage;
+export default PatternPage;

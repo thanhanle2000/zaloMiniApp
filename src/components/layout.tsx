@@ -12,6 +12,9 @@ import CheckoutResultPage from "pages/result";
 import { getSystemInfo } from "zmp-sdk";
 import { ScrollRestoration } from "./scroll-restoration";
 import { useHandlePayment } from "hooks";
+import ProductPage from "pages/product";
+import { PostPage } from "pages/post";
+import PatternPage from "pages/pattern";
 
 if (getSystemInfo().platform === "android") {
   const androidSafeTop = Math.round(
@@ -35,10 +38,13 @@ export const Layout: FC = () => {
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/search" element={<SearchPage />}></Route>
           <Route path="/category" element={<CategoryPage />}></Route>
+          <Route path="/category/:productId" element={<ProductPage/>}></Route>
           <Route path="/notification" element={<NotificationPage />}></Route>
           <Route path="/cart" element={<CartPage />}></Route>
+          <Route path="/posts/:postId" element={<PostPage />} ></Route>
           <Route path="/profile" element={<ProfilePage />}></Route>
           <Route path="/result" element={<CheckoutResultPage />}></Route>
+          <Route path="/pattern" element={<PatternPage />}></Route>
         </Routes>
       </Box>
       <Navigation />

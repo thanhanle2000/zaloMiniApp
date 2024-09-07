@@ -1,0 +1,32 @@
+[
+    {   
+        "id": "cabin",
+        "lable": "CABIN",
+        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg"
+    },
+    {
+        "id": "cuaTang",
+        "lable": "CỬA TẦNG",
+        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg"
+    },
+    {   
+        "id": "sanCabin",
+        "lable": "SÀN CABIN",
+        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg"
+    },
+    {
+        "id": "tranGia",
+        "lable": "TRẦN GIẢ",
+        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg"
+    },
+    {
+        "id": "tayVin",
+        "lable": "TAY VỊN",
+        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg"
+    },
+    {
+        "id": "hib",
+        "lable": "COP/HIB",
+        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg"
+    }
+]

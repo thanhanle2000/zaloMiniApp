@@ -10,37 +10,74 @@ export interface FixedSale {
 
 export type Sale = PercentSale | FixedSale;
 
-export interface Option {
-  id: string;
-  label?: string;
-  priceChange?: Sale;
+export interface Info {
+  ceiling?: string;
+  frontWall?: string;
+  sideWall?: string;
+  backWall?: string;
+  handrail?: string;
+  cabinDoor?: string;
+  lobby?: string;
+  floors?: string;
+  gfnf?: string;
+  cabinFloor?: string;
+  cabinDoorType?: string;
+  floorDoor?: string;
 }
 
-export interface BaseVariant {
-  id: string;
-  label?: string;
-  options: Option[];
+export interface TechInfo {
+  techSpec?:Section[];
+  techDrawing?: Section[];
+  spec?: Section[];
+  power?: Section[];
+  shaft?: Section[];
+  images?: Section[];
+  videos?: Section[];
 }
-
-export interface SingleOptionVariant extends BaseVariant {
-  type: "single";
-  default?: string;
-}
-
-export interface MultipleOptionVariant extends BaseVariant {
-  type: "multiple";
-  default?: string[];
-}
-
-export type Variant = SingleOptionVariant | MultipleOptionVariant;
 
 export interface Product {
-  id: number;
+  id: string;
   name: string;
   image: string;
   price: number;
-  categoryId: string[];
-  description?: string;
+  categoryId: string;
+  refImages?: string[];
   sale?: Sale;
-  variants?: Variant[];
+  info?: Info;
+  techInfo?: TechInfo
+}
+
+export interface ProductsCategory {
+  lable: string;
+  image: string;
+  categoryId: string;
+}
+
+export interface Pattern {
+  id: string;
+  lable: string;
+  image: string
+}
+
+export interface PatternItem {
+  id: string;
+  name: string;
+  patternId: string;
+  image: string;
+}
+
+export interface Section {
+  type: "paragraph" | "subheader" | "bulletList" | "image" | "space" | "header"
+  content?: string [] 
+}
+
+export interface Post {
+  id: string;
+  title: string;
+  type: "news" | "services" | "aboutUs"
+  thumbnail: string;
+  author?: string;
+  createAt?: string;
+  editedAt?: string;
+  sections?: Section []
 }

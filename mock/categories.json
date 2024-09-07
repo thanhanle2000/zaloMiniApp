@@ -1,37 +1,74 @@
 [
   {
-    "id": "coffee",
-    "name": "Cà phê",
-    "icon": "https://stc-zmp.zadn.vn/templates/zaui-coffee/dummy/category-coffee.svg"
+    "id": "thangTaiKhach",
+    "type": "products",
+    "name": "Thang tải khách",
+    "icon": "https://pub-d79d527fdb044f488b110e2a9ab47e06.r2.dev/thangTaiKhach.png"
   },
   {
-    "id": "matcha",
-    "name": "Trà xanh",
-    "icon": "https://stc-zmp.zadn.vn/templates/zaui-coffee/dummy/category-matcha.svg"
+    "id": "thangTaiHang",
+    "type": "products",
+    "name": "Thang tải hàng",
+    "icon": "https://pub-d79d527fdb044f488b110e2a9ab47e06.r2.dev/thangTaiHang.png"
   },
   {
-    "id": "food",
-    "name": "Đồ ăn vặt",
-    "icon": "https://stc-zmp.zadn.vn/templates/zaui-coffee/dummy/category-food.svg"
+    "id": "thangTaiOTo",
+    "type": "products",
+    "name": "Thang tải ô tô",
+    "icon": "https://pub-d79d527fdb044f488b110e2a9ab47e06.r2.dev/thangTaiOto.png"
   },
   {
-    "id": "milktea",
-    "name": "Trà sữa",
-    "icon": "https://stc-zmp.zadn.vn/templates/zaui-coffee/dummy/category-milktea.svg"
+    "id": "thangThucPham",
+    "type": "products",
+    "name": "Thang thực phẩm",
+    "icon": "https://pub-d79d527fdb044f488b110e2a9ab47e06.r2.dev/thangThucPham.png"
   },
   {
-    "id": "drinks",
-    "name": "Giải khát",
-    "icon": "https://stc-zmp.zadn.vn/templates/zaui-coffee/dummy/category-drinks.svg"
+    "id": "thangQuanSat",
+    "type": "products",
+    "name": "Thang quan sát",
+    "icon": "https://pub-d79d527fdb044f488b110e2a9ab47e06.r2.dev/thangQuanSat.png"
   },
   {
-    "id": "bread",
-    "name": "Bánh mỳ",
-    "icon": "https://stc-zmp.zadn.vn/templates/zaui-coffee/dummy/category-bread.svg"
+    "id": "thangTaiGiuongBenh",
+    "type": "products",
+    "name": "Thang tải giường bệnh",
+    "icon": "https://pub-d79d527fdb044f488b110e2a9ab47e06.r2.dev/thangGiuongBenh.png"
   },
   {
-    "id": "juice",
-    "name": "Nước ép",
-    "icon": "https://stc-zmp.zadn.vn/templates/zaui-coffee/dummy/category-juice.svg"
+    "id": "suaChua",
+    "type": "feature",
+    "name": "Sửa chữa",
+    "icon": "https://pub-d79d527fdb044f488b110e2a9ab47e06.r2.dev/suaChua.png"
+  },
+  {
+    "id": "baoTri",
+    "type": "feature",
+    "name": "Bảo trì",
+    "icon": "https://pub-d79d527fdb044f488b110e2a9ab47e06.r2.dev/baoTri.png"
+  },
+  {
+    "id": "mauMa",
+    "type": "feature",
+    "name": "Mẫu mã",
+    "icon": "https://pub-d79d527fdb044f488b110e2a9ab47e06.r2.dev/checkList.png"
+  },
+  {
+    "id": "tinTuc",
+    "type": "feature",
+    "name": "Tin tức",
+    "icon": "https://pub-d79d527fdb044f488b110e2a9ab47e06.r2.dev/news.png"
+  },
+  {
+    "id": "sieuKhuyenMai",
+    "type": "feature",
+    "name": "Siêu khuyến mãi",
+    "icon": "https://pub-d79d527fdb044f488b110e2a9ab47e06.r2.dev/sieuKhuyenMai.png"
+  },
+  {
+    "id": "miniGame",
+    "type": "feature",
+    "name": "Mini Game",
+    "icon": "https://pub-d79d527fdb044f488b110e2a9ab47e06.r2.dev/miniGame.png"
   }
 ]

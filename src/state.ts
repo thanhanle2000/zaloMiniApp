@@ -2,7 +2,7 @@ import { atom, selector, selectorFamily } from "recoil";
 import { getLocation, getPhoneNumber, getUserInfo } from "zmp-sdk";
 import logo from "static/logo.png";
 import { Category } from "types/category";
-import { Product, Variant } from "types/product";
+import { Product, ProductsCategory, Pattern, Post, PatternItem } from "types/product";
 import { Cart } from "types/cart";
 import { Notification } from "types/notification";
 import { calculateDistance } from "utils/location";
@@ -10,6 +10,9 @@ import { Store } from "types/delivery";
 import { calcFinalPrice } from "utils/product";
 import { wait } from "utils/async";
 import categories from "../mock/categories.json";
+import productsCategory from "../mock/productsCategory.json"
+import patterns from "../mock/patterns.json"
+import patternItems from "../mock/patternItems.json"
 
 export const userState = selector({
   key: "user",
@@ -37,15 +40,10 @@ export const productsState = selector<Product[]>({
   get: async () => {
     await wait(2000);
     const products = (await import("../mock/products.json")).default;
-    const variants = (await import("../mock/variants.json"))
-      .default as Variant[];
     return products.map(
       (product) =>
         ({
-          ...product,
-          variants: variants.filter((variant) =>
-            product.variantId.includes(variant.id)
-          ),
+          ...product
         } as Product)
     );
   },
@@ -55,14 +53,67 @@ export const recommendProductsState = selector<Product[]>({
   key: "recommendProducts",
   get: ({ get }) => {
     const products = get(productsState);
-    return products.filter((p) => p.sale);
+    return products.filter( (product) => product.sale)
   },
 });
 
+export const productsCategoryState = selector<ProductsCategory[]>({
+  key: "productsCategory",
+  get: () => productsCategory
+})
+
+export const patternsState = selector<Pattern[]>({
+  key: "patterns",
+  get: () => patterns
+})
+
+export const patternItemsState = selector<PatternItem[]>({
+  key: "patternItems",
+  get: () => patternItems
+})
+
+export const postsState = selector<Post []>({
+  key: "posts",
+  get: async () => {
+    await wait(2000)
+    const posts = (await import("../mock/posts.json")).default
+    return posts.map((post) => ({...post} as Post))
+  }
+})
+
+export const newsState = selector<Post []>({
+  key: "news",
+  get: ({get}) => {
+    const posts = get(postsState)
+    return posts.filter(post => post.type === "news")
+  }
+})
+
+export const servicesState = selector<Post []>({
+  key: "services",
+  get: ({get}) => {
+    const posts = get(postsState)
+    return posts.filter( post => post.type === "services")
+  }
+})
+
+export const aboutUsState = selector<Post []>({
+  key: "aboutUs",
+  get: ({get}) => {
+    const posts = get(postsState)
+    return posts.filter(post => post.type === "aboutUs")
+  }
+})
+
 export const selectedCategoryIdState = atom({
   key: "selectedCategoryId",
-  default: "coffee",
+  default: "thangTaiKhach",
 });
+
+export const selectedPatternIdState = atom({
+  key: "selectedPatternId",
+  default: "cabin"
+})
 
 export const productsByCategoryState = selectorFamily<Product[], string>({
   key: "productsByCategory",
@@ -75,6 +126,24 @@ export const productsByCategoryState = selectorFamily<Product[], string>({
       );
     },
 });
+
+export const postByIdState = selectorFamily<Post[], string | undefined>({
+  key: "postById",
+  get:
+  (postId) =>
+    ({ get }) => {
+      const allPosts = get(postsState);
+      return allPosts.filter((post) => post.id === postId);
+    },
+})
+
+export const productByIdState = selectorFamily<Product, string | undefined>({
+  key: "productById",
+  get: (productId) => ({get}) => {
+    const allProducts = get(productsState)
+    return allProducts.filter((product) => product.id === productId)[0]
+  }
+})
 
 export const cartState = atom<Cart>({
   key: "cart",

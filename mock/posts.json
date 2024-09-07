@@ -1,0 +1,222 @@
+[
+    {
+        "id" : "1",
+        "title": "CÁC MẪU THANG MÁY GIA ĐÌNH HOT NHẤT",
+        "type": "news",
+        "thumbnail": "https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg",
+        "author": "Viet Tri",
+        "createAt": "8/20/2024, 12:34:56 PM",
+        "sections": [
+            {
+                "type": "header",
+                "content" : ["CAC MAU THANG MAY GIA DINH HOT"]
+            },
+            {
+                "type": "subheader",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "image",
+                "content" : ["https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            }
+        ]
+    },
+    {
+        "id" : "2",
+        "title": "CÁC MẪU THANG MÁY PHỔ BIẾN NHẤT",
+        "type": "news",
+        "thumbnail": "https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg",
+        "author": "Viet Tri",
+        "createAt": "8/20/2024, 12:34:56 PM",
+        "sections": [
+            {
+                "type": "header",
+                "content": ["cac mau thang may hot"]
+            },
+            {
+                "type": "subheader",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "image",
+                "content" : ["https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            }
+        ]
+    },
+    {
+        "id" : "3",
+        "title": "CHĂM SÓC KHÁCH HÀNG",
+        "type": "services",
+        "thumbnail": "https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg",
+        "author": "Viet Tri",
+        "createAt": "8/20/2024, 12:34:56 PM",
+        "sections": [
+            {
+                "type": "subheader",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "image",
+                "content" : ["https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            }
+        ]
+    },
+    {
+        "id" : "4",
+        "title": "BẢO DƯỠNG BẢO TRÌ",
+        "type": "services",
+        "thumbnail": "https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg",
+        "author": "Viet Tri",
+        "createAt": "8/20/2024, 12:34:56 PM",
+        "sections": [
+            {
+                "type": "subheader",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "image",
+                "content" : ["https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            }
+        ]
+    },
+    {
+        "id" : "5",
+        "title": "SỬA CHỮA LẮP ĐẶT THEO YÊU CẦU",
+        "type": "services",
+        "thumbnail": "https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg",
+        "author": "Viet Tri",
+        "createAt": "8/20/2024, 12:34:56 PM",
+        "sections": [
+            {
+                "type": "subheader",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "image",
+                "content" : ["https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            }
+        ]
+    },
+    {
+        "id" : "6",
+        "title": "DỊCH VỤ BẢO HÀNH",
+        "type": "services",
+        "thumbnail": "https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg",
+        "author": "Viet Tri",
+        "createAt": "8/20/2024, 12:34:56 PM",
+        "sections": [
+            {
+                "type": "subheader",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "image",
+                "content" : ["https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            }
+        ]
+    },
+    {
+        "id" : "7",
+        "title": "GIỚI THIỆU",
+        "type": "aboutUs",
+        "thumbnail": "https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg",
+        "author": "Viet Tri",
+        "createAt": "8/20/2024, 12:34:56 PM",
+        "sections": [
+            {
+                "type": "header",
+                "content": ["cac mau thang may hot"]
+            },
+            {
+                "type": "subheader",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "image",
+                "content" : ["https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            }
+        ]
+    },
+    {
+        "id" : "8",
+        "title": "VỀ CÔNG TY",
+        "type": "aboutUs",
+        "thumbnail": "https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg",
+        "author": "Viet Tri",
+        "createAt": "8/20/2024, 12:34:56 PM",
+        "sections": [
+            {
+                "type": "subheader",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            },
+            {
+                "type": "image",
+                "content" : ["https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg"]
+            },
+            {
+                "type": "paragraph",
+                "content" : ["cac mau thang may hot"]
+            }
+        ]
+    }
+]

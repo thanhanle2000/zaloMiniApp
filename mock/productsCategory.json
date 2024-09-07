@@ -1,0 +1,32 @@
+[
+    {
+        "lable": "THANG TẢI KHÁCH",
+        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg",
+        "categoryId": "thangTaiKhach"
+    },
+    {
+        "lable": "THANG TẢI HÀNG",
+        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg",
+        "categoryId": "thangTaiHang"
+    },
+    {
+        "lable": "THANG TẢI Ô TÔ",
+        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg",
+        "categoryId": "thangTaiOTo"
+    },
+    {
+        "lable": "THANG THỰC PHẨM",
+        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg",
+        "categoryId": "thangThucPham"
+    },
+    {
+        "lable": "THANG QUAN SÁT",
+        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg",
+        "categoryId": "thangQuanSat"
+    },
+    {
+        "lable": "THANG TẢI GIƯỜNG BỆNH",
+        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg",
+        "categoryId": "thangTaiGiuongBenh"
+    }
+]

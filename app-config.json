@@ -1,9 +1,9 @@
 {
   "app": {
-    "title": "ZaUI Coffee",
+    "title": "Viet Tri",
     "headerColor": "",
-    "textColor": "black",
-    "statusBarColor": "#ffffff",
+    "textColor": "white",
+    "statusBarColor": "#0068b2",
     "leftButton": "none",
     "statusBar": "transparent",
     "selfControlLoading": false,
@@ -23,7 +23,7 @@
     "/404"
   ],
   "template": {
-    "primaryColor": "#006af5",
+    "primaryColor": "#0068b2",
     "prefixCurrencySymbol": false,
     "currencySymbol": "đ",
     "headerLogo": ""

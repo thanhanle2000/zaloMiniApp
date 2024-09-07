@@ -11,16 +11,17 @@ export const Welcome: FC = () => {
 
   return (
     <Header
-      className="app-header no-border pl-4 flex-none pb-[6px]"
+      className="app-header no-border pl-4 flex-none pb-[6px] bg-[#0068b2] "
       showBackIcon={false}
       title={
         (
           <Box flex alignItems="center" className="space-x-2">
             <img
-              className="w-8 h-8 rounded-lg border-inset"
-              src={getConfig((c) => c.template.headerLogo) || logo}
+              className="h-[34px] object-contain bg-white rounded-sm"
+              src="https://thangmayviettri.vn/wp-content/uploads/2020/05/logoVietTriPNG-300x68.png"
+              // src={getConfig((c) => c.template.headerLogo) || logo}
             />
-            <Box>
+            {/* <Box>
               <Text.Title size="small">{appConfig.app.title}</Text.Title>
               {user.state === "hasValue" ? (
                 <Text size="xxSmall" className="text-gray">
@@ -29,7 +30,7 @@ export const Welcome: FC = () => {
               ) : (
                 <Text>...</Text>
               )}
-            </Box>
+            </Box> */}
           </Box>
         ) as unknown as string
       }
