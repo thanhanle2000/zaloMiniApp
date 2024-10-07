@@ -1,7 +1,7 @@
 [
     {
         "id" : "1",
-        "title": "CÁC MẪU THANG MÁY GIA ĐÌNH HOT NHẤT",
+        "title": "Chăm sóc khách hàng",
         "type": "news",
         "thumbnail": "https://thangmayviettri.vn/wp-content/uploads/2020/09/unnamed-1-1-e1599192546854.jpg",
         "author": "Viet Tri",
@@ -121,11 +121,11 @@
         "sections": [
             {
                 "type": "subheader",
-                "content" : ["cac mau thang may hot"]
+                "content" : [""]
             },
             {
                 "type": "paragraph",
-                "content" : ["cac mau thang may hot"]
+                "content" : ["Khách hàng sau khi hoàn tất các dịch vụ tại Thang máy Việt Trí được chăm sóc bởi những đội ngũ chuyên gia hàng đầu, có nhiều kinh nghiệm."]
             },
             {
                 "type": "image",
@@ -133,7 +133,11 @@
             },
             {
                 "type": "paragraph",
-                "content" : ["cac mau thang may hot"]
+                "content" : [
+                "Khách hàng được phản ánh với chúng tôi về chất lượng sản phẩm, chất lượng dịch vụ, về những băn khoăn hay bức xúc, chúng tôi sẽ tư vấn để có giải pháp phù hợp, để phục vụ và để khắc phục", 
+                "Khách hàng được nhận xét về Thái độ phục vụ, về tính cách của Nhân viên phục vụ, để chúng tôi khắc phục, để mọi người hòa đồng hơn, thân thiện hơn, hoàn thiện hơn.",
+                "Khách hàng có thể góp ý với chúng tôi để chúng tôi phục vụ được tốt hơn, chuyên nghiệp hơn."
+            ]
             }
         ]
     },

@@ -11,14 +11,14 @@ export const Welcome: FC = () => {
 
   return (
     <Header
-      className="app-header no-border pl-4 flex-none pb-[6px] bg-[#0068b2] "
+      className="app-header no-border pl-4 flex-none pb-[6px] shadow-md "
       showBackIcon={false}
       title={
         (
           <Box flex alignItems="center" className="space-x-2">
             <img
               className="h-[34px] object-contain bg-white rounded-sm"
-              src="https://thangmayviettri.vn/wp-content/uploads/2020/05/logoVietTriPNG-300x68.png"
+              src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/logoVietTriPNG-300x68.png"
               // src={getConfig((c) => c.template.headerLogo) || logo}
             />
             {/* <Box>

@@ -4,29 +4,65 @@ import { Box, Text } from "zmp-ui";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { categoriesState, selectedCategoryIdState } from "state";
 import { useNavigate } from "react-router";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export const Categories: FC = () => {
   const categories = useRecoilValue(categoriesState);
   const navigate = useNavigate();
   const setSelectedCategoryId = useSetRecoilState(selectedCategoryIdState);
 
-  const gotoCategory = (categoryId: string) => {
-    setSelectedCategoryId(categoryId);
-    navigate("/category");
+  const gotoCategory = (categoryType: string, categoryId: string) => {
+    if(categoryType === 'products') {
+      setSelectedCategoryId(categoryId);
+      navigate("/category");
+    }
+    if(categoryType === "feature") {
+      switch (categoryId) {
+        case "suaChua":
+          navigate('/posts/VTES03')
+          break
+        case "baoTri": 
+          navigate('/posts/VTES02')
+          break
+        case "mauMa":
+          navigate('/pattern')
+          break
+        case "tinTuc":
+          navigate('/overview/news')
+          break
+        case "sieuKhuyenMai": 
+          navigate('/events')
+          break
+        case "miniGame":
+          navigate('/games')
+          break
+        default: 
+          navigate('/')
+      }
+    }
   };
 
+  const iconLists = [0,2,4,6,8,10]
+
   return (
-    <Box className="grid grid-cols-4 gap-4 p-4">
-      {categories.map((category, i) => (
-        <div
-          key={i}
-          onClick={ category.type === "products" ? () => gotoCategory(category.id) : () => {}}
-          className="flex flex-col space-y-2 items-center"
-        >
-          <img className="w-12 h-12 p-1 rounded-lg bg-[#0068b2]" src={category.icon} />
-          <span className=" text-sm font-semibold text-slate-700 text-center">{category.name}</span>
-        </div>
-      ))}
+    
+    <Box className="pt-8 pb-10 bg-white">
+      <Swiper slidesPerView={4.1} spaceBetween={0} className=" px-4">
+        {iconLists.map((item) => (
+          <SwiperSlide key={item}>
+            {categories.slice(item, item + 2).map((category, i) => (
+              <div
+              key={i}
+              onClick={ () => gotoCategory(category.type, category.id)}
+              className="flex flex-col items-center"
+            >
+              <img className="w-full p-1 h-full" src={category.icon} />
+    
+            </div>
+            ))}
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </Box>
   );
 };

@@ -21,7 +21,7 @@ export const RecommendContent: FC = () => {
         <span className=" text-lg font-bold text-slate-700">
           DỊCH VỤ CỦA VIỆT TRÍ
         </span>
-        <span className=" text-sm text-[#0074BC]">
+        <span onClick={() => navigate('/overview/services')} className=" text-sm text-[#0074BC]">
           Xem tất cả
         </span>
       </div>

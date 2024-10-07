@@ -3,24 +3,21 @@ import React, { Suspense } from "react";
 import { FC } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useRecoilValue } from "recoil";
-import { postByIdState } from "state";
 import { Page, Header, Box, Text } from "zmp-ui";
 
 
-export const PostPage: FC = () => {
 
-    const { postId } = useParams();
+export const EventsPage: FC = () => {
+
+    const { type } = useParams();
     const navigate = useNavigate();
-    const posts = useRecoilValue(
-      postByIdState(postId),
-    );
 
     return (
       <Page className="flex flex-col ">
-        <Header backgroundColor="#0068b2" textColor="white" title={posts[0].title} />
+        <Header backgroundColor="#0068b2" textColor="white" title="SIÊU KHUYẾN MÃI" />
         <Suspense>
-          <div className=" py-4 px-4" >
-            {posts[0].sections ? <PostItem sections={posts[0].sections} /> : (<></>)}
+          <div className=" flex items-center justify-center py-4 px-4" >
+            <span className=" text-slate-500">Đang cập nhật...</span>
           </div>
         </Suspense>
       </Page>

@@ -1,32 +1,32 @@
 [
     {
         "lable": "THANG TẢI KHÁCH",
-        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg",
+        "image": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiKhachCatalog.png",
         "categoryId": "thangTaiKhach"
     },
     {
         "lable": "THANG TẢI HÀNG",
-        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg",
+        "image": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiHangCatalog.png",
         "categoryId": "thangTaiHang"
     },
     {
         "lable": "THANG TẢI Ô TÔ",
-        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg",
+        "image": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiOToCatalog.png",
         "categoryId": "thangTaiOTo"
     },
     {
         "lable": "THANG THỰC PHẨM",
-        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg",
+        "image": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangThucPhamCatalog.png",
         "categoryId": "thangThucPham"
     },
     {
         "lable": "THANG QUAN SÁT",
-        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg",
+        "image": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangQuanSatCatalog.png",
         "categoryId": "thangQuanSat"
     },
     {
         "lable": "THANG TẢI GIƯỜNG BỆNH",
-        "image": "https://thangmayviettri.vn/wp-content/uploads/2020/09/VTE-PLMY02.jpg",
+        "image": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiGiuongBenhCatalog.png",
         "categoryId": "thangTaiGiuongBenh"
     }
 ]

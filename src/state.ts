@@ -2,7 +2,13 @@ import { atom, selector, selectorFamily } from "recoil";
 import { getLocation, getPhoneNumber, getUserInfo } from "zmp-sdk";
 import logo from "static/logo.png";
 import { Category } from "types/category";
-import { Product, ProductsCategory, Pattern, Post, PatternItem } from "types/product";
+import {
+  Product,
+  ProductsCategory,
+  Pattern,
+  Post,
+  PatternItem,
+} from "types/product";
 import { Cart } from "types/cart";
 import { Notification } from "types/notification";
 import { calculateDistance } from "utils/location";
@@ -10,9 +16,8 @@ import { Store } from "types/delivery";
 import { calcFinalPrice } from "utils/product";
 import { wait } from "utils/async";
 import categories from "../mock/categories.json";
-import productsCategory from "../mock/productsCategory.json"
-import patterns from "../mock/patterns.json"
-import patternItems from "../mock/patternItems.json"
+import productsCategory from "../mock/productsCategory.json";
+import patterns from "../mock/patterns.json";
 
 export const userState = selector({
   key: "user",
@@ -22,11 +27,22 @@ export const userState = selector({
       return userInfo;
     } catch (error) {
       return {
-        id: "",
-        avatar: "",
+        id: "000000",
+        avatar:
+          "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/logoAvatar.png",
         name: "Người dùng Zalo",
       };
     }
+  },
+});
+
+export const bannersState = selector({
+  key: "banners",
+  get: () => {
+    return [
+      "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/bannerOp1.png",
+      "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/bannerOp2.png",
+    ];
   },
 });
 
@@ -37,73 +53,132 @@ export const categoriesState = selector<Category[]>({
 
 export const productsState = selector<Product[]>({
   key: "products",
-  get: async () => {
-    await wait(2000);
-    const products = (await import("../mock/products.json")).default;
-    return products.map(
-      (product) =>
-        ({
-          ...product
-        } as Product)
-    );
+  get: async ({ get }) => {
+    try {
+      const res = await fetch(
+        `https://viet_tri_api.mkt-viettri.workers.dev/api/products/search/params?standard=yes`,
+        {
+          method: "GET",
+        }
+      );
+      if (res.ok) {
+        return res.json();
+      } else {
+        return [];
+      }
+    } catch (error) {
+      return [];
+    }
   },
 });
 
 export const recommendProductsState = selector<Product[]>({
   key: "recommendProducts",
-  get: ({ get }) => {
-    const products = get(productsState);
-    return products.filter( (product) => product.sale)
+  get: async ({ get }) => {
+    try {
+      const res = await fetch(
+        `https://viet_tri_api.mkt-viettri.workers.dev/api/products/search/params?sale=yes`,
+        {
+          method: "GET",
+        }
+      );
+      if (res.ok) {
+        return res.json();
+      } else {
+        return [];
+      }
+    } catch (error) {
+      return [];
+    }
   },
 });
 
 export const productsCategoryState = selector<ProductsCategory[]>({
   key: "productsCategory",
-  get: () => productsCategory
-})
+  get: () => productsCategory,
+});
 
 export const patternsState = selector<Pattern[]>({
   key: "patterns",
-  get: () => patterns
-})
+  get: () => patterns,
+});
 
-export const patternItemsState = selector<PatternItem[]>({
-  key: "patternItems",
-  get: () => patternItems
-})
-
-export const postsState = selector<Post []>({
+export const postsState = selector<Post[]>({
   key: "posts",
   get: async () => {
-    await wait(2000)
-    const posts = (await import("../mock/posts.json")).default
-    return posts.map((post) => ({...post} as Post))
-  }
-})
+    await wait(2000);
+    const posts = (await import("../mock/posts.json")).default;
+    return posts.map((post) => ({ ...post } as Post));
+  },
+});
 
-export const newsState = selector<Post []>({
+export const newsState = selector<Post[]>({
   key: "news",
-  get: ({get}) => {
-    const posts = get(postsState)
-    return posts.filter(post => post.type === "news")
-  }
-})
+  get: async ({ get }) => {
+    const res = await fetch(
+      `https://viet_tri_api.mkt-viettri.workers.dev/api/posts/news`,
+      {
+        method: "GET",
+      }
+    );
+    if (res.ok) {
+      return res.json();
+    } else {
+      return [];
+    }
+  },
+});
 
-export const servicesState = selector<Post []>({
+export const servicesState = selector<Post[]>({
   key: "services",
-  get: ({get}) => {
-    const posts = get(postsState)
-    return posts.filter( post => post.type === "services")
-  }
-})
+  get: async ({ get }) => {
+    const res = await fetch(
+      `https://viet_tri_api.mkt-viettri.workers.dev/api/posts/services`,
+      {
+        method: "GET",
+      }
+    );
+    if (res.ok) {
+      return res.json();
+    } else {
+      return [];
+    }
+  },
+});
 
-export const aboutUsState = selector<Post []>({
+export const projectsState = selector<Post[]>({
+  key: "projects",
+  get: async ({ get }) => {
+    const res = await fetch(
+      `https://viet_tri_api.mkt-viettri.workers.dev/api/posts/projects`,
+      {
+        method: "GET",
+      }
+    );
+    if (res.ok) {
+      return res.json();
+    } else {
+      return [];
+    }
+  },
+});
+
+export const aboutUsState = selector<Post[]>({
   key: "aboutUs",
-  get: ({get}) => {
-    const posts = get(postsState)
-    return posts.filter(post => post.type === "aboutUs")
-  }
-})
+  get: async ({ get }) => {
+    const res = await fetch(
+      `https://viet_tri_api.mkt-viettri.workers.dev/api/posts/aboutUs`,
+      {
+        method: "GET",
+      }
+    );
+    if (res.ok) {
+      return res.json();
+    } else {
+      return [];
+    }
+  },
+});
 
 export const selectedCategoryIdState = atom({
   key: "selectedCategoryId",
@@ -112,240 +187,146 @@ export const selectedCategoryIdState = atom({
 
 export const selectedPatternIdState = atom({
   key: "selectedPatternId",
-  default: "cabin"
-})
+  default: "cabin",
+});
 
 export const productsByCategoryState = selectorFamily<Product[], string>({
   key: "productsByCategory",
   get:
     (categoryId) =>
-    ({ get }) => {
-      const allProducts = get(productsState);
-      return allProducts.filter((product) =>
-        product.categoryId.includes(categoryId)
+    async ({ get }) => {
+      const res = await fetch(
+        `https://viet_tri_api.mkt-viettri.workers.dev/api/products/${categoryId}`,
+        {
+          method: "GET",
+        }
       );
+      if (res.ok) {
+        return res.json();
+      } else {
+        return [];
+      }
+    },
+});
+
+export const patternsByCategoryState = selectorFamily<PatternItem[], string>({
+  key: "patternsByCategory",
+  get:
+    (categoryId) =>
+    async ({ get }) => {
+      const res = await fetch(
+        `https://viet_tri_api.mkt-viettri.workers.dev/api/patterns/${categoryId}`,
+        {
+          method: "GET",
+        }
+      );
+      if (res.ok) {
+        return res.json();
+      } else {
+        return [];
+      }
+    },
+});
+
+export const dataByTypeState = selectorFamily<
+  Product[] | Post[] | Pattern[],
+  string | undefined
+>({
+  key: "dataByType",
+  get:
+    (type) =>
+    ({ get }) => {
+      switch (type) {
+        case "products":
+          const productsList = get(productsState);
+          return productsList;
+
+        case "deal":
+          const products = get(recommendProductsState);
+          return products;
+        case "catalogue":
+          const catalogs = get(patternsState);
+          return catalogs;
+        case "projects":
+          const projects = get(projectsState);
+          return projects;
+        case "news":
+          const news = get(newsState);
+          return news;
+        case "services":
+          const services = get(servicesState);
+          return services;
+        case "aboutUs":
+          const aboutUs = get(aboutUsState);
+          return aboutUs;
+        default:
+          return [];
+      }
     },
 });
 
 export const postByIdState = selectorFamily<Post[], string | undefined>({
   key: "postById",
   get:
-  (postId) =>
+    (postId) =>
     ({ get }) => {
-      const allPosts = get(postsState);
-      return allPosts.filter((post) => post.id === postId);
+      if (postId?.includes("VTEA")) {
+        const aboutUs = get(aboutUsState);
+        return aboutUs.filter((posts) => posts.id === postId);
+      }
+      if (postId?.includes("VTEN")) {
+        const news = get(newsState);
+        return news.filter((posts) => posts.id === postId);
+      }
+      if (postId?.includes("VTES")) {
+        const services = get(servicesState);
+        return services.filter((posts) => posts.id === postId);
+      }
+      if (postId?.includes("VTEP")) {
+        const projects = get(projectsState);
+        return projects.filter((posts) => posts.id === postId);
+      }
+      return [];
     },
-})
+});
 
 export const productByIdState = selectorFamily<Product, string | undefined>({
   key: "productById",
-  get: (productId) => ({get}) => {
-    const allProducts = get(productsState)
-    return allProducts.filter((product) => product.id === productId)[0]
-  }
-})
+  get:
+    (productId) =>
+    async ({ get }) => {
+      const res = await fetch(
+        `https://viet_tri_api.mkt-viettri.workers.dev/api/products/search/params?id=${productId}`,
+        {
+          method: "GET",
+        }
+      );
+      if (res.ok) {
+        return res.json();
+      } else {
+        return {};
+      }
+    },
+});
 
-export const cartState = atom<Cart>({
+export const cartState = atom<any[]>({
   key: "cart",
   default: [],
 });
 
-export const totalQuantityState = selector({
-  key: "totalQuantity",
-  get: ({ get }) => {
-    const cart = get(cartState);
-    return cart.reduce((total, item) => total + item.quantity, 0);
-  },
-});
-
-export const totalPriceState = selector({
-  key: "totalPrice",
-  get: ({ get }) => {
-    const cart = get(cartState);
-    return cart.reduce(
-      (total, item) =>
-        total + item.quantity * calcFinalPrice(item.product, item.options),
-      0
-    );
-  },
+export const profileState = atom<any[]>({
+  key: "profile",
+  default: [],
 });
 
 export const notificationsState = atom<Notification[]>({
   key: "notifications",
-  default: [
-    {
-      id: 1,
-      image: logo,
-      title: "Chào bạn mới",
-      content:
-        "Cảm ơn đã sử dụng ZaUI Coffee, bạn có thể dùng ứng dụng này để tiết kiệm thời gian xây dựng",
-    },
-    {
-      id: 2,
-      image: logo,
-      title: "Giảm 50% lần đầu mua hàng",
-      content: "Nhập WELCOME để được giảm 50% giá trị đơn hàng đầu tiên order",
-    },
-  ],
-});
-
-export const keywordState = atom({
-  key: "keyword",
-  default: "",
-});
-
-export const resultState = selector<Product[]>({
-  key: "result",
-  get: async ({ get }) => {
-    const keyword = get(keywordState);
-    if (!keyword.trim()) {
-      return [];
-    }
-    const products = get(productsState);
-    await wait(500);
-    return products.filter((product) =>
-      product.name.trim().toLowerCase().includes(keyword.trim().toLowerCase())
-    );
-  },
-});
-
-export const storesState = atom<Store[]>({
-  key: "stores",
-  default: [
-    {
-      id: 1,
-      name: "VNG Campus Store",
-      address:
-        "Khu chế xuất Tân Thuận, Z06, Số 13, Tân Thuận Đông, Quận 7, Thành phố Hồ Chí Minh, Việt Nam",
-      lat: 10.741639,
-      long: 106.714632,
-    },
-    {
-      id: 2,
-      name: "The Independence Palace",
-      address:
-        "135 Nam Kỳ Khởi Nghĩa, Bến Thành, Quận 1, Thành phố Hồ Chí Minh, Việt Nam",
-      lat: 10.779159,
-      long: 106.695271,
-    },
-    {
-      id: 3,
-      name: "Saigon Notre-Dame Cathedral Basilica",
-      address:
-        "1 Công xã Paris, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam",
-      lat: 10.779738,
-      long: 106.699092,
-    },
-    {
-      id: 4,
-      name: "Bình Quới Tourist Village",
-      address:
-        "1147 Bình Quới, phường 28, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam",
-      lat: 10.831098,
-      long: 106.733128,
-    },
-    {
-      id: 5,
-      name: "Củ Chi Tunnels",
-      address: "Phú Hiệp, Củ Chi, Thành phố Hồ Chí Minh, Việt Nam",
-      lat: 11.051655,
-      long: 106.494249,
-    },
-  ],
-});
-
-export const nearbyStoresState = selector({
-  key: "nearbyStores",
-  get: ({ get }) => {
-    // Get the current location from the locationState atom
-    const location = get(locationState);
-
-    // Get the list of stores from the storesState atom
-    const stores = get(storesState);
-
-    // Calculate the distance of each store from the current location
-    if (location) {
-      const storesWithDistance = stores.map((store) => ({
-        ...store,
-        distance: calculateDistance(
-          location.latitude,
-          location.longitude,
-          store.lat,
-          store.long
-        ),
-      }));
-
-      // Sort the stores by distance from the current location
-      const nearbyStores = storesWithDistance.sort(
-        (a, b) => a.distance - b.distance
-      );
-
-      return nearbyStores;
-    }
-    return [];
-  },
-});
-
-export const selectedStoreIndexState = atom({
-  key: "selectedStoreIndex",
-  default: 0,
-});
-
-export const selectedStoreState = selector({
-  key: "selectedStore",
-  get: ({ get }) => {
-    const index = get(selectedStoreIndexState);
-    const stores = get(nearbyStoresState);
-    return stores[index];
-  },
-});
-
-export const selectedDeliveryTimeState = atom({
-  key: "selectedDeliveryTime",
-  default: +new Date(),
-});
-
-export const requestLocationTriesState = atom({
-  key: "requestLocationTries",
-  default: 0,
+  default: [],
 });
 
 export const requestPhoneTriesState = atom({
   key: "requestPhoneTries",
   default: 0,
-});
-
-export const locationState = selector<
-  { latitude: string; longitude: string } | false
->({
-  key: "location",
-  get: async ({ get }) => {
-    const requested = get(requestLocationTriesState);
-    if (requested) {
-      const { latitude, longitude, token } = await getLocation({
-        fail: console.warn,
-      });
-      if (latitude && longitude) {
-        return { latitude, longitude };
-      }
-      if (token) {
-        console.warn(
-          "Sử dụng token này để truy xuất vị trí chính xác của người dùng",
-          token
-        );
-        console.warn(
-          "Chi tiết tham khảo: ",
-          "https://mini.zalo.me/blog/thong-bao-thay-doi-luong-truy-xuat-thong-tin-nguoi-dung-tren-zalo-mini-app"
-        );
-        console.warn("Giả lập vị trí mặc định: VNG Campus");
-        return {
-          latitude: "10.7287",
-          longitude: "106.7317",
-        };
-      }
-    }
-    return false;
-  },
 });
 
 export const phoneState = selector<string | boolean>({
@@ -370,9 +351,4 @@ export const phoneState = selector<string | boolean>({
     }
     return false;
   },
-});
-
-export const orderNoteState = atom({
-  key: "orderNote",
-  default: "",
 });

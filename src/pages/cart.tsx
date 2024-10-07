@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import { useRecoilValue } from "recoil";
-import { profileState } from "state";
+import { cartState } from "state";
 import { Box, Header, Page, Text } from "zmp-ui";
 import { Divider } from "components/divider";
 
-const ProfileContext: FC = () => {
-  const profile = useRecoilValue(profileState);
+const CartContext: FC = () => {
+  const cart = useRecoilValue(cartState);
   return (
     <Box className="bg-background">
       <div className="p-4">
@@ -15,14 +15,14 @@ const ProfileContext: FC = () => {
   );
 };
 
-const ProfilePage: FC = () => {
+const CartPage: FC = () => {
   return (
     <Page>
-      <Header title="Cá nhân" showBackIcon={false} textColor="white" backgroundColor="#0068b2"/>
+      <Header title="Giỏ hàng" showBackIcon={false} textColor="white" backgroundColor="#0068b2" />
       <Divider />
-      <ProfileContext />
+      <CartContext />
     </Page>
   );
 };
 
-export default ProfilePage;
+export default CartPage;

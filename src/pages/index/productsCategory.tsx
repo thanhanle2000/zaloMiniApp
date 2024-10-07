@@ -35,17 +35,17 @@ export const RecommendContent: FC = () => {
           Xem tất cả
         </span>
       </div>
-      <Swiper slidesPerView={2.25} spaceBetween={12} className="px-4">
+      <Swiper slidesPerView={2.2} spaceBetween={8} className="px-4">
         {productsCategory.map((category) => (
           <SwiperSlide key={category.lable}>
-            <div className=" relative pb-4 flex flex-col items-center bg-white border-b border-r border-slate-300  rounded-lg  p-1 ">
+            <div onClick={() => {gotoCategory(category.categoryId)}} className=" relative pb-2 flex flex-col items-center bg-white border-b border-r border-slate-300  rounded-lg  p-1 ">
               <div
-                className="relative w-full aspect-square rounded-lg bg-cover bg-center bg-skeleton"
+                className="flex flex-col items-center relative w-full aspect-[3/4] rounded-lg bg-cover bg-center bg-skeleton"
                 style={{ backgroundImage: `url(${category.image})` }}
               />
-              <span className=" text-sm font-bold text-slate-700 py-4">{category.lable}</span>
-              <div className=" bg-[#0074BC] px-2 py-[2px] rounded-lg" onClick={() => {gotoCategory(category.categoryId)}}>
-                <span className=" text-xs font-semibold text-white">XEM CHI TIẾT</span>
+              <span className=" text-xs font-semibold text-slate-700 pt-2">{category.lable}</span>
+              <div className=" bg-[#0074BC] px-[10px] mt-1 rounded-md" >
+                <span className=" text-xs text-white">XEM CHI TIẾT</span>
               </div>
             </div>
           </SwiperSlide>
@@ -63,7 +63,7 @@ export const RecommendFallback: FC = () => {
       <Swiper slidesPerView={1.25} spaceBetween={16} className="px-4">
         {recommendProducts.map((_, i) => (
           <SwiperSlide key={i}>
-            <ProductSlideSkeleton />
+            <div>Đang tải dữ liệu ...</div>
           </SwiperSlide>
         ))}
       </Swiper>

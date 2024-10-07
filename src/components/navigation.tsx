@@ -14,10 +14,9 @@ const tabs: Record<string, MenuItem> = {
     label: "Thông báo",
     icon: <Icon icon="zi-notif" />,
   },
-  "/cart": {
-    label: "Giỏ hàng",
-    icon: <CartIcon />,
-    activeIcon: <CartIcon active />,
+  "/messages": {
+    label: "Nhắn tin",
+    icon: <Icon icon="zi-chat" />,
   },
   "/profile": {
     label: "Cá nhân",
@@ -34,6 +33,14 @@ export const Navigation: FC = () => {
   const keyboardVisible = useVirtualKeyboardVisible();
   const navigate = useNavigate();
   const location = useLocation();
+  const handleClick = (path) => {
+    if(path === "/messages") {
+      window.location.href = "https://zalo.me/239837943299975253"
+    }
+    else {
+      navigate(path)
+    }
+  }
 
   const noBottomNav = useMemo(() => {
     return NO_BOTTOM_NAVIGATION_PAGES.includes(location.pathname);
@@ -56,7 +63,7 @@ export const Navigation: FC = () => {
           label={tabs[path].label}
           icon={tabs[path].icon}
           activeIcon={tabs[path].activeIcon}
-          onClick={() => navigate(path)}
+          onClick={() => handleClick(path)}
         />
       ))}
     </BottomNavigation>

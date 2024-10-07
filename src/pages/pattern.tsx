@@ -2,6 +2,7 @@ import { ProductItem } from "components/product/item";
 import React, { FC, Suspense } from "react";
 import { useRecoilValue } from "recoil";
 import {
+  patternsByCategoryState,
   patternsState,
   productsByCategoryState,
   selectedPatternIdState,
@@ -20,7 +21,7 @@ const CategoryPicker: FC = () => {
       {patterns.map((pattern) => (
         <Tabs.Tab key={pattern.id} label={pattern.lable}>
           <Suspense>
-            <CategoryProducts categoryId={pattern.lable} />
+            <CategoryPattern categoryId={pattern.id} />
           </Suspense>
         </Tabs.Tab>
       ))}
@@ -28,12 +29,11 @@ const CategoryPicker: FC = () => {
   );
 };
 
-const CategoryProducts: FC<{ categoryId: string }> = ({ categoryId }) => {
-  const productsByCategory = useRecoilValue(
-    productsByCategoryState(categoryId),
+const CategoryPattern: FC<{ categoryId: string }> = ({ categoryId }) => {
+  const patternsByCategory = useRecoilValue(
+    patternsByCategoryState(categoryId),
   );
-
-  if (productsByCategory.length === 0) {
+  if (patternsByCategory.length === 0) {
     return (
       <Box className="flex-1 bg-background p-4 flex justify-center items-center">
         <Text size="xSmall" className="text-gray">
@@ -44,8 +44,14 @@ const CategoryProducts: FC<{ categoryId: string }> = ({ categoryId }) => {
   }
   return (
     <Box className="bg-[#e0e7ec] grid grid-cols-2 gap-4 p-4">
-      {productsByCategory.map((product) => (
-        <ProductItem key={product.id} product={product} />
+      {patternsByCategory.map((pattern) => (
+        <div key={pattern.id} className=" flex justify-center items-center ">
+          <div className=" flex flex-col items-center justify-center bg-white shadow-lg rounded-md">
+          <img className=" w-[150px] object-contain rounded-t-md " loading="lazy" src={pattern.image} alt={pattern.name} />
+          <span className=" py-2 font-semibold text-slate-600">{pattern.name}</span>
+          </div>
+          
+        </div>
       ))}
     </Box>
   );

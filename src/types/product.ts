@@ -64,6 +64,7 @@ export interface PatternItem {
   name: string;
   patternId: string;
   image: string;
+  sections?: Section []
 }
 
 export interface Section {
@@ -74,7 +75,7 @@ export interface Section {
 export interface Post {
   id: string;
   title: string;
-  type: "news" | "services" | "aboutUs"
+  type: "news" | "services" | "aboutUs" | "projects";
   thumbnail: string;
   author?: string;
   createAt?: string;

@@ -6,9 +6,11 @@ import { useRecoilValue } from "recoil";
 import { patternsState } from "state";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Box, Text } from "zmp-ui";
+import { useNavigate } from "react-router";
 import { formatNumber } from "utils/utils";
 
 export const RecommendContent: FC = () => {
+  const navigate = useNavigate()
   const patterns = useRecoilValue(patternsState);
 
   return (
@@ -17,7 +19,7 @@ export const RecommendContent: FC = () => {
         <span className=" text-lg font-bold text-slate-700">
           CATALOGUE
         </span>
-        <span className=" text-sm text-[#0074BC]">
+        <span onClick={() => navigate('/overview/catalogue')} className=" text-sm text-[#0074BC]">
           Xem tất cả
         </span>
       </div>
@@ -29,12 +31,12 @@ export const RecommendContent: FC = () => {
                 className="relative w-full aspect-video rounded-lg bg-cover bg-center bg-skeleton"
                 style={{ backgroundImage: `url(${category.image})` }}
               />
-              <div className=" flex w-full mt-1 px-4 py-2 items-center justify-between">
-                <div>
-                    <span>XEM</span>
+              <div className=" flex w-full mt-1 px-4 items-center justify-between">
+                <div className=" hover:bg-slate-100 px-2 ">
+                <img className=" h-[22px] aspect-square" src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/eyesIcon.png" alt={`${category.id}eyes`} />
                 </div>
-                <div>
-                    <span>TẢI VỀ</span>
+                <div className=" hover:bg-slate-100 px-2 " >
+                <img className=" h-[22px] aspect-square" src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/downloadIcon.png" alt={`${category.id}download`} />
                 </div>
               </div>
             </div>

@@ -7,9 +7,11 @@ import { useRecoilValue } from "recoil";
 import { recommendProductsState } from "state";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Box, Text } from "zmp-ui";
+import { useNavigate } from "react-router";
 import { formatNumber } from "utils/utils";
 
 export const RecommendContent: FC = () => {
+  const navigate = useNavigate();
   const recommendProducts = useRecoilValue(recommendProductsState);
 
   return (
@@ -18,16 +20,22 @@ export const RecommendContent: FC = () => {
         <span className=" text-lg font-bold text-slate-700">
           DEAL SẮP DIỄN RA
         </span>
-        <span className=" text-sm text-[#0074BC]">
-          Xem tất cả
-        </span>
+        <span onClick={() => navigate("/overview/deal")} className=" text-sm text-[#0074BC]">Xem tất cả</span>
       </div>
       <Swiper slidesPerView={2.25} spaceBetween={12} className="px-4">
-        {recommendProducts.map((product) => (
-          <SwiperSlide key={product.id}>
-            <ProductItem product={product} />
-          </SwiperSlide>
-        ))}
+        {recommendProducts.length > 0 ? (
+          <>
+            {recommendProducts.map((product) => (
+              <SwiperSlide key={product.id}>
+                <ProductItem product={product} />
+              </SwiperSlide>
+            ))}
+          </>
+        ) : (
+          <>
+          <span className=" text-sm text-slate-500">Đang chờ cập nhật...</span>
+          </>
+        )}
       </Swiper>
     </Box>
   );

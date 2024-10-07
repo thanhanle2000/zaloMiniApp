@@ -4,7 +4,7 @@ import { Box } from "zmp-ui";
 
 export const Footer: FC = () => {
   return (
-    <Box className=" flex flex-col items-start mt-10 py-8 bg-slate-50 ">
+    <Box className=" flex flex-col items-start  py-8 bg-slate-50 ">
       <img
         className=" h-[40px] object-contain"
         src="https://thangmayviettri.vn/wp-content/uploads/2020/05/logoVietTriPNG-300x68.png"
@@ -123,6 +123,7 @@ export const Footer: FC = () => {
           </svg>
           <span className=" text-base font-bold">0982 739 788</span>
         </div>
+        <img className=" w-[200px]" src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/boCongThuong.png" alt="boCongThuong" />
       </div>
     </Box>
   );
