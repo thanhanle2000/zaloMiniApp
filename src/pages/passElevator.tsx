@@ -797,12 +797,12 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
             <span className=" font-semibold text-lg text-slate-700">
               PHƯƠNG ÁN TÙY CHỌN
             </span>
-            <div className=" mt-4 flex items-start space-x-4">
+            <div className=" mt-4 flex items-start space-x-2">
               <div className=" flex flex-col items-center space-y-[6px] ">
                 {selectList1.map((item) => (
                   <span
                     onClick={() => handleClick(item.id)}
-                    className=" px-6 w-full py-1 bg-slate-300 border text-center border-[#0074BC] text-[#0074BC] rounded-lg "
+                    className=" px-2 text-sm w-full py-1 bg-slate-300 border text-center border-[#0074BC] text-[#0074BC] rounded-lg "
                   >
                     {item.label}
                   </span>
@@ -812,7 +812,7 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
                 {selectList2.map((item) => (
                   <span
                     onClick={() => handleClick(item.id)}
-                    className=" px-6 w-full py-1 bg-slate-300 border text-center border-[#0074BC] text-[#0074BC] rounded-lg "
+                    className=" px-2 text-sm w-full py-1 bg-slate-300 border text-center border-[#0074BC] text-[#0074BC] rounded-lg "
                   >
                     {item.label}
                   </span>

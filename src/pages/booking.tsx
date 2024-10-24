@@ -34,7 +34,7 @@ const BookingContext: FC = () => {
   };
 
   return (
-    <Box className=" px-6 py-8 ">
+    <Box className=" px-2 py-8 ">
       <div className=" flex flex-col items-center bg-white rounded-xl py-8 space-y-4  ">
         {valid ? (
           <>
@@ -58,7 +58,7 @@ const BookingContext: FC = () => {
             >
               <div className=" flex flex-col space-y-1">
                 <div className=" flex items-center ">
-                  <label className="w-[130px] text-sm text-slate-700 whitespace-nowrap">
+                  <label className="w-[120px] text-sm text-slate-700 whitespace-nowrap">
                     Họ & tên *
                   </label>
                   <div>
@@ -74,7 +74,7 @@ const BookingContext: FC = () => {
                   </div>
                 </div>
                 <div className=" flex items-center ">
-                  <label className=" w-[130px] text-sm text-slate-700 whitespace-nowrap">
+                  <label className=" w-[120px] text-sm text-slate-700 whitespace-nowrap">
                     Số điện thoại *
                   </label>
                   <div>
@@ -91,7 +91,7 @@ const BookingContext: FC = () => {
                   </div>
                 </div>
                 <div className=" py-1 flex space-x-1 items-start ">
-                  <label className="w-[130px] text-sm text-slate-700 whitespace-nowrap">
+                  <label className="w-[120px] text-sm text-slate-700 whitespace-nowrap">
                     Địa chỉ công trình{" "}
                   </label>
                   <div className=" flex flex-col space-y-1 justify-end">
@@ -126,7 +126,7 @@ const BookingContext: FC = () => {
                   </div>
                 </div>
                 <div className=" py-1 flex  items-start space-x-1">
-                  <label className=" w-[130px] text-sm text-slate-700 whitespace-nowrap">
+                  <label className=" w-[120px] text-sm text-slate-700 whitespace-nowrap">
                     Dịch vụ quan tâm * :
                   </label>
                   <div className=" flex flex-col items-start">
@@ -181,7 +181,7 @@ const BookingContext: FC = () => {
                   </div>
                 </div>
                 <div className=" py-1 flex space-x-1 items-start ">
-                  <label className="w-[130px] text-sm text-slate-700 whitespace-nowrap">
+                  <label className="w-[120px] text-sm text-slate-700 whitespace-nowrap">
                     {" "}
                     Yêu cầu chi tiết
                   </label>
