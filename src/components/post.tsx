@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 const SectionItem: FC<{ section: Section }> = ({ section }) => {
   if(section.type === "header") {
     return (
-      <div className=" w-full flex flex-col items-center">
+      <div className=" w-full flex flex-col items-center text-center">
         {section.content?.map((data, i) => (
           <span className=" text-lg font-semibold text-slate-700" key={i}>
             {data}
@@ -18,9 +18,9 @@ const SectionItem: FC<{ section: Section }> = ({ section }) => {
   }
   if (section.type === "paragraph") {
     return (
-      <div className=" flex flex-col ">
+      <div className=" flex flex-col justify-start ">
         {section.content?.map((data, i) => (
-          <p className=" text-slate-700" key={i}>
+          <p className=" text-justify text-slate-700" key={i}>
             {data}
           </p>
         ))}
@@ -52,10 +52,10 @@ const SectionItem: FC<{ section: Section }> = ({ section }) => {
   }
   if (section.type === "bulletList") {
     return (
-      <ul className=" text-slate-800">
+      <ul className=" text-slate-800" style={{ listStyleType: 'disc' }}>
         {section.content?.map((data, i) => (
           <li key={i.toString()}>
-            <strong>-</strong> {data}
+            <span className=" text-slate-800 justify-between">{data}</span>
           </li>
         ))}
       </ul>

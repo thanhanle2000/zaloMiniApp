@@ -10,12 +10,12 @@ const tabs: Record<string, MenuItem> = {
     label: "Trang chủ",
     icon: <Icon icon="zi-home" />,
   },
-  "/notification": {
-    label: "Thông báo",
-    icon: <Icon icon="zi-notif" />,
+  "/booking": {
+    label: "Đặt lịch",
+    icon: <Icon icon="zi-calendar" />,
   },
-  "/messages": {
-    label: "Nhắn tin",
+  "/messeger": {
+    label: "Liên hệ",
     icon: <Icon icon="zi-chat" />,
   },
   "/profile": {
@@ -33,13 +33,11 @@ export const Navigation: FC = () => {
   const keyboardVisible = useVirtualKeyboardVisible();
   const navigate = useNavigate();
   const location = useLocation();
-  const handleClick = (path) => {
-    if(path === "/messages") {
-      window.location.href = "https://zalo.me/239837943299975253"
+  const handleClick = (path: string) => {
+    if(path.includes("messeger")) {
+      window.location.href = 'https://zalo.me/239837943299975253';
     }
-    else {
-      navigate(path)
-    }
+    navigate(path)
   }
 
   const noBottomNav = useMemo(() => {
@@ -55,7 +53,7 @@ export const Navigation: FC = () => {
       id="footer"
       activeKey={activeTab}
       onChange={(key: TabKeys) => setActiveTab(key)}
-      className="z-50"
+      className="z-[99999]"
     >
       {Object.keys(tabs).map((path: TabKeys) => (
         <BottomNavigation.Item

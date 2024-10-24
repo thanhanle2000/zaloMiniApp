@@ -14,13 +14,13 @@ export const ProductItem: FC<{ product: Product }> = ({ product }) => {
 
   return (
     <Box className=" w-full ">
-      <div onClick={() => gotoProduct(product.id)}  className=" relative w-full h-full  pb-2 flex flex-col items-center bg-white border-b border-r border-slate-300  rounded-lg  p-1 ">
+      <div onClick={() => gotoProduct(product.id)}  className=" relative w-full h-full  pb-2 flex flex-col items-center bg-white border-b-2 border-r border-slate-300  rounded-lg  p-1 ">
         <div
           className="relative w-full aspect-[3/4] rounded-lg bg-cover bg-center bg-skeleton"
           style={{ backgroundImage: `url(${product.image})` }}
         />
         <div className=" flex flex-col items-center justify-center">
-        <span className=" mt-2 text-sm font-semibold text-slate-700">{product.name}</span>
+        <span className=" mt-1 text-sm font-semibold text-slate-700">{product.name}</span>
         {product.sale?.type === "percent" ? (
           <div className=" flex items-center space-x-1">
             <span className=" flex-nowrap text-sm text-slate-900 line-through">
@@ -42,14 +42,14 @@ export const ProductItem: FC<{ product: Product }> = ({ product }) => {
             {formatNumber(product.price * (1 - product.sale.percent))}đ
           </span>
         ) : (
-          <span className=" text-xs font-semibold text-[#0074BC] ">
+          <span className=" text-xs text-[#0074BC] ">
             {product.price > 0 ? `${formatNumber(product.price)}}đ` : "Liên hệ"}
           </span>
         )}
 
-        <div className=" mt-1 bg-[#0074BC] px-2 rounded-sm">
-          <span className=" text-xs text-white">
-            XEM CHI TIẾT
+        <div className="">
+          <span className=" text-xs text-[#0074BC] underline underline-offset-2">
+            Xem chi tiết
           </span>
         </div>
         </div>

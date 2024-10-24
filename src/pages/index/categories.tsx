@@ -2,12 +2,13 @@ import React from "react";
 import { FC } from "react";
 import { Box, Text } from "zmp-ui";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { categoriesState, selectedCategoryIdState } from "state";
+import { categoriesState, selectedCategoryIdState, userState } from "state";
 import { useNavigate } from "react-router";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 export const Categories: FC = () => {
   const categories = useRecoilValue(categoriesState);
+  const user = useRecoilValue(userState)
   const navigate = useNavigate();
   const setSelectedCategoryId = useSetRecoilState(selectedCategoryIdState);
 
@@ -42,27 +43,27 @@ export const Categories: FC = () => {
     }
   };
 
-  const iconLists = [0,2,4,6,8,10]
 
   return (
     
-    <Box className="pt-8 pb-10 bg-white">
-      <Swiper slidesPerView={4.1} spaceBetween={0} className=" px-4">
-        {iconLists.map((item) => (
-          <SwiperSlide key={item}>
-            {categories.slice(item, item + 2).map((category, i) => (
-              <div
-              key={i}
-              onClick={ () => gotoCategory(category.type, category.id)}
-              className="flex flex-col items-center"
-            >
-              <img className="w-full p-1 h-full" src={category.icon} />
-    
+    <Box className=" flex flex-col pt-8 pb-10 bg-slate-100 px-4">
+      <Box className=" flex items-center space-x-4 px-4">
+        <div className=" relative rounded-full">
+          <img className=" w-[60px] rounded-full aspect-square" src={user.avatar} alt="avatar" />
+          <div className=" absolute bottom-2 right-0 w-[12px] aspect-square bg-green rounded-full "></div>
+        </div>
+        <span className=" text-base text-slate-600 font-semibold">{user.name}</span>
+      </Box>
+      <Box className=" mt-6 grid grid-cols-4 gap-x-2 gap-y-4">
+        {categories.map((item) => (
+          <div onClick={() => gotoCategory(item.type, item.id)} key={item.id} className=" flex flex-col items-center text-center space-y-1" >
+            <div className=" bg-[#0068b2] rounded-md  p-[6px]">
+              <img className=" max-w-[46px] aspect-square" src={item.icon} alt={item.id} />
             </div>
-            ))}
-          </SwiperSlide>
+            <span className=" text-xs text-slate-700 max-w-[70px] ">{item.name}</span>
+          </div>
         ))}
-      </Swiper>
+      </Box>
     </Box>
   );
 };

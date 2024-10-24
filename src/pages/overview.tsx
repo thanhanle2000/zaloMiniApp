@@ -6,9 +6,10 @@ import { useRecoilValue } from "recoil";
 import { dataByTypeState } from "state";
 import { Page, Header, Box, Text } from "zmp-ui";
 import { ProductItem } from "components/product/item";
+import { convertTimestamp } from "utils/utils";
 
 const lable = {
-  products: "SẢN PHẨM",
+  products: "SẢN PHẨM NỔI BẬT",
   deal: "DEAL SẮP DIỄN RA",
   catalogue: "CATALOGUE",
   news: "TIN TỨC",
@@ -57,20 +58,16 @@ export const OverviewPage: FC = () => {
             </>
           ) : type === "catalogue" ? (
             <>
-              <div className=" p-4 flex flex-col items-center space-y-2">
+              <div className=" grid grid-cols-2 gap-x-2 gap-y-4 px-4 py-8">
                 {data.map((category) => (
-                  <div className=" relative w-[300px] flex flex-col items-center bg-white border-b border-r border-slate-300  rounded-lg  p-1 ">
+                  <div className=" relative w-full flex flex-col items-center bg-white border-b border-r border-slate-300  rounded-lg  p-1 ">
                     <div
                       className="relative w-full aspect-video rounded-lg bg-cover bg-center bg-skeleton"
-                      style={{ backgroundImage: `url(${category.image})` }}
+                      style={{ backgroundImage: `url(${category.catalogImage})` }}
                     />
                     <div className=" flex w-full mt-1 px-4 items-center justify-between">
                       <div className=" hover:bg-slate-100 px-2 ">
-                        <img
-                          className=" h-[22px] aspect-square"
-                          src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/eyesIcon.png"
-                          alt={`${category.id}eyes`}
-                        />
+                        <span className=" text-sm text-[#0074BC] underline underline-offset-2">XEM</span>
                       </div>
                       <div className=" hover:bg-slate-100 px-2 ">
                         <img
@@ -86,20 +83,37 @@ export const OverviewPage: FC = () => {
             </>
           ) : (
             <>
-              <div className=" p-4 flex flex-col space-y-2 items-center">
+              <div className={`${ type === "aboutUs" ? "flex flex-col items-center space-y-2" : type === "services" ? "flex flex-col items-center space-y-2" : "grid grid-cols-2 gap-x-2 gap-y-4" } px-2 py-8`}>
                 {data.map((post) => (
                   <div
                     key={post.id}
                     onClick={() => gotoPost(post.id)}
-                    className=" relative flex flex-col items-center bg-white border-b border-r border-slate-300  rounded-lg  p-1 "
+                    className=" relative flex flex-col bg-white border-b-2 border-r border-slate-300  rounded-lg  p-1 "
                   >
                     <div
-                      className="relative w-[310px] aspect-video rounded-lg bg-cover bg-center bg-skeleton"
+                      className={`${ type === "aboutUs" ? " min-w-[260px]" : type === "services" ? "min-w-[260px]" : "w-full" } aspect-video rounded-lg bg-cover bg-center bg-skeleton`}
                       style={{ backgroundImage: `url(${post.thumbnail})` }}
                     />
-                    <span className=" text-center w-[300px]  text-sm font-bold text-slate-700 py-2 mt-1">
-                      {post.title}
-                    </span>
+                      {type === "news" ? (
+                        <>
+                          <div className=" flex flex-col px-1 mt-2">
+                          <span className=" text-start text-sm font-bold text-slate-700 ">
+                            {post.title}
+                          </span>
+                          <span className=" text-slate-500 text-sm ">
+                            {convertTimestamp(post.createAt)}
+                          </span>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                        <div className=" flex flex-col px-1 mt-2 items-center">
+                        <span className=" text-center text-sm font-bold text-slate-700 ">
+                            {post.title}
+                          </span>
+                          </div>
+                        </>
+                      )}
                   </div>
                 ))}
               </div>

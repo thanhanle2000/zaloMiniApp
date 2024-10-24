@@ -19,7 +19,7 @@ export const RecommendContent: FC = () => {
   };
 
   return (
-    <Box className=" py-6 space-y-4 ">
+    <Box className=" pt-6 pb-8 border-b-2 border-slate-200 space-y-4 ">
       <div className=" flex items-center justify-between px-4">
         <span className=" text-lg font-bold text-slate-700">
           TIN TỨC
@@ -31,12 +31,14 @@ export const RecommendContent: FC = () => {
       <Swiper slidesPerView={1.25} spaceBetween={12} className="px-4">
         {news.map((post) => (
           <SwiperSlide key={post.id}>
-            <div onClick={() => gotoPost(post.id)} className=" relative flex flex-col items-center bg-white border-b border-r border-slate-300  rounded-lg  p-1 ">
+            <div onClick={() => gotoPost(post.id)} className=" relative flex flex-col items-center bg-white border-b-2 border-r border-slate-300 rounded-lg  p-1 ">
               <div
                 className="relative w-full aspect-video rounded-lg bg-cover bg-center bg-skeleton"
                 style={{ backgroundImage: `url(${post.thumbnail})` }}
               />
-              <span className=" text-center text-sm font-bold text-slate-700 py-2 mt-1">{post.title}</span>
+              <div className=" mt-2 px-4 flex flex-col justify-center text-center min-h-[40px]">
+              <p className=" text-center text-sm font-bold text-slate-700 overflow-hidden ">{post.title}</p>
+              </div>
             </div>
           </SwiperSlide>
         ))}

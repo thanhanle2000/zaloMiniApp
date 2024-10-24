@@ -17,7 +17,7 @@ export const Welcome: FC = () => {
         (
           <Box flex alignItems="center" className="space-x-2">
             <img
-              className="h-[34px] object-contain bg-white rounded-sm"
+              className="h-[40px] object-contain bg-white rounded-sm"
               src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/logoVietTriPNG-300x68.png"
               // src={getConfig((c) => c.template.headerLogo) || logo}
             />

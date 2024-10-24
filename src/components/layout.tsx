@@ -4,7 +4,6 @@ import { Box } from "zmp-ui";
 import { Navigation } from "./navigation";
 import HomePage from "pages/index";
 import CategoryPage from "pages/category";
-import CartPage from "../pages/cart"
 import NotificationPage from "pages/notification";
 import ProfilePage from "../pages/profile";
 import { getSystemInfo } from "zmp-sdk";
@@ -17,6 +16,8 @@ import { OverviewPage } from "pages/overview";
 import { EventsPage } from "pages/events";
 import { GamesPage } from "pages/games";
 import { Contact } from "./contact";
+import BookingPage from "pages/booking";
+import PassElevatorPage from "pages/passElevator";
 
 if (getSystemInfo().platform === "android") {
   const androidSafeTop = Math.round(
@@ -41,9 +42,10 @@ export const Layout: FC = () => {
           <Route path="/category" element={<CategoryPage />}></Route>
           <Route path="/category/:productId" element={<ProductPage/>}></Route>
           <Route path="/notification" element={<NotificationPage />}></Route>
-          <Route path="/cart" element={<CartPage />}></Route>
+          <Route path="/booking" element={<BookingPage />}></Route>
           <Route path="/posts/:postId" element={<PostPage />} ></Route>
           <Route path="/overview/:type" element={<OverviewPage />}></Route>
+          <Route path="/elevator/:productId" element={<PassElevatorPage />}></Route>
           <Route path="/events" element={<EventsPage/>}></Route>
           <Route path="/games" element={<GamesPage/>}></Route>
           <Route path="/profile" element={<ProfilePage />}></Route>

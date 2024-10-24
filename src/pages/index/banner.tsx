@@ -8,7 +8,7 @@ import { bannersState } from "state";
 export const Banner: FC = () => {
   const banners = useRecoilValue(bannersState);
   return (
-    <Box className=" px-4 py-4">
+    <Box className=" px-4 py-8 bg-[#0068b2]">
       <Swiper
         modules={[Pagination]}
         pagination={{
@@ -21,7 +21,7 @@ export const Banner: FC = () => {
         {banners.map((banner, i) => (
           <SwiperSlide key={i} className="">
           <Box
-            className="w-full rounded-t-lg h-[170px] bg-contain bg-no-repeat bg-center bg-skeleton"
+            className="w-full rounded-t-lg h-[170px] bg-contain bg-no-repeat bg-center "
             style={{ backgroundImage: `url(${banner})` }}
           />
         </SwiperSlide>

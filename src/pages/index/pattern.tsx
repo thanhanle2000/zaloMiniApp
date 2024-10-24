@@ -25,7 +25,7 @@ export const RecommendContent: FC = () => {
   };
 
   return (
-    <Box className=" py-6 space-y-4 ">
+    <Box className=" pt-6 pb-8 border-b-2 border-slate-200 space-y-4 ">
       <div className=" flex items-center justify-between px-4">
         <span className=" text-lg font-bold text-slate-700">
           MẪU MÃ
@@ -37,15 +37,14 @@ export const RecommendContent: FC = () => {
       <Swiper slidesPerView={2.2} spaceBetween={8} className="px-4">
         {patterns.map((category) => (
           <SwiperSlide key={category.lable}>
-            <div onClick={() => gotoCategory(category.id)} className=" relative pb-2 flex flex-col items-center bg-white border-b border-r border-slate-300  rounded-lg  p-1 ">
+            <div onClick={() => gotoCategory(category.id)} className=" relative pb-2 flex flex-col items-center bg-white border-b-2 border-r border-slate-300 rounded-lg p-1 ">
               <div
-                className="relative w-full aspect-[5/6] rounded-lg bg-cover bg-center bg-skeleton"
+                className="relative w-full aspect-[3/4] rounded-lg bg-cover bg-center bg-skeleton"
                 style={{ backgroundImage: `url(${category.image})` }}
               />
-              <span className="mt-1 text-xs font-semibold text-slate-700 pt-2">{category.lable}</span>
-              <div  className="mt-1 bg-[#0074BC] px-2 rounded-md">
-                <span className=" text-xs text-white">XEM CHI TIẾT</span>
-              </div>
+              <span className="mt-2 text-sm font-semibold text-slate-700 ">{category.lable}</span>
+              <span className=" text-xs text-[#0074BC] underline underline-offset-2">Xem chi tiết</span>
+              
             </div>
           </SwiperSlide>
         ))}

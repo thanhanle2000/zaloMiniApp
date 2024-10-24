@@ -18,7 +18,7 @@ import { Partners } from "./partners";
 
 const HomePage: React.FunctionComponent = () => {
   return (
-    <Page className="relative flex-1 flex flex-col bg-gradient-to-r from-blue-300 from-10% via-sky-300 via-30% to-emerald-200 to-90% ">
+    <Page className="relative flex-1 flex flex-col bg-slate-100">
       <Welcome />
       <Box className="flex-1 overflow-auto">
         {/* <VoucherBanner /> */}
@@ -28,7 +28,7 @@ const HomePage: React.FunctionComponent = () => {
         </Suspense>
         <Banner />
         <Products/>
-        <Projects/>
+        
         {/* <Deal /> */}
         <ProductsCategory />
         <Pattern />
@@ -36,6 +36,7 @@ const HomePage: React.FunctionComponent = () => {
         <News />
         <Services />
         <AboutUs />
+        <Projects/>
         <Partners/>
         <Footer />
       </Box>

@@ -16,7 +16,7 @@ export const RecommendContent: FC = () => {
     navigate(url);
   };
   return (
-    <Box className=" py-6 space-y-4 ">
+    <Box className=" pt-6 pb-8 border-b-2 border-slate-200 space-y-4 ">
       <div className=" flex items-center justify-between px-4">
         <span className=" text-lg font-bold text-slate-700">
           VỀ CHÚNG TÔI
@@ -28,7 +28,7 @@ export const RecommendContent: FC = () => {
       <Swiper slidesPerView={1.25} spaceBetween={12} className="px-4">
         {aboutUs.map((post) => (
           <SwiperSlide key={post.id}>
-            <div onClick={() => gotoPost(post.id)} className=" relative flex flex-col items-center bg-white border-b border-r border-slate-300  rounded-lg  p-1 ">
+            <div onClick={() => gotoPost(post.id)} className=" relative flex flex-col items-center bg-white border-b-2 border-r border-slate-300  rounded-lg  p-1 ">
               <div
                 className="relative w-full aspect-video rounded-lg bg-cover bg-center bg-skeleton"
                 style={{ backgroundImage: `url(${post.thumbnail})` }}

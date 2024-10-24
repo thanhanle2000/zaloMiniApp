@@ -31,14 +31,14 @@ const techCategories = [
     id: "shaft",
     label: "Chuẩn bị hố thang",
   },
-  {
-    id: "images",
-    label: "Hình ảnh thực tế",
-  },
-  {
-    id: "videos",
-    label: "Video",
-  },
+  // {
+  //   id: "images",
+  //   label: "Hình ảnh thực tế",
+  // },
+  // {
+  //   id: "videos",
+  //   label: "Video",
+  // },
 ];
 
 const defaultTechSpec: { [key: string]: { [key: string]: Section[] } } = {
@@ -120,16 +120,16 @@ const defaultTechSpec: { [key: string]: { [key: string]: Section[] } } = {
         type: "space",
       },
     ],
-    images: [
-      {
-        type: "space",
-      },
-    ],
-    videos: [
-      {
-        type: "space",
-      },
-    ],
+    // images: [
+    //   {
+    //     type: "space",
+    //   },
+    // ],
+    // videos: [
+    //   {
+    //     type: "space",
+    //   },
+    // ],
   },
   thangTaiHang: {
     techSpec: [
@@ -233,16 +233,16 @@ const defaultTechSpec: { [key: string]: { [key: string]: Section[] } } = {
         ],
       },
     ],
-    images: [
-      {
-        type: "space",
-      },
-    ],
-    videos: [
-      {
-        type: "space",
-      },
-    ],
+    // images: [
+    //   {
+    //     type: "space",
+    //   },
+    // ],
+    // videos: [
+    //   {
+    //     type: "space",
+    //   },
+    // ],
   },
   thangTaiOTo: {
     techSpec: [
@@ -369,16 +369,16 @@ const defaultTechSpec: { [key: string]: { [key: string]: Section[] } } = {
         ],
       },
     ],
-    images: [
-      {
-        type: "space",
-      },
-    ],
-    videos: [
-      {
-        type: "space",
-      },
-    ],
+    // images: [
+    //   {
+    //     type: "space",
+    //   },
+    // ],
+    // videos: [
+    //   {
+    //     type: "space",
+    //   },
+    // ],
   },
   thangThucPham: {
     techSpec: [
@@ -482,16 +482,16 @@ const defaultTechSpec: { [key: string]: { [key: string]: Section[] } } = {
         ],
       },
     ],
-    images: [
-      {
-        type: "space",
-      },
-    ],
-    videos: [
-      {
-        type: "space",
-      },
-    ],
+    // images: [
+    //   {
+    //     type: "space",
+    //   },
+    // ],
+    // videos: [
+    //   {
+    //     type: "space",
+    //   },
+    // ],
   },
   thangQuanSat: {
     techSpec: [
@@ -571,16 +571,16 @@ const defaultTechSpec: { [key: string]: { [key: string]: Section[] } } = {
         type: "space",
       },
     ],
-    images: [
-      {
-        type: "space",
-      },
-    ],
-    videos: [
-      {
-        type: "space",
-      },
-    ],
+    // images: [
+    //   {
+    //     type: "space",
+    //   },
+    // ],
+    // videos: [
+    //   {
+    //     type: "space",
+    //   },
+    // ],
   },
   thangTaiGiuongBenh: {
     techSpec: [
@@ -696,19 +696,19 @@ const defaultTechSpec: { [key: string]: { [key: string]: Section[] } } = {
         ],
       },
     ],
-    images: [
-      {
-        type: "image",
-        content: [
-          "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangBenhVienImage01.jpg",
-        ],
-      },
-    ],
-    videos: [
-      {
-        type: "space",
-      },
-    ],
+    // images: [
+    //   {
+    //     type: "image",
+    //     content: [
+    //       "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangBenhVienImage01.jpg",
+    //     ],
+    //   },
+    // ],
+    // videos: [
+    //   {
+    //     type: "space",
+    //   },
+    // ],
   },
 };
 
@@ -756,7 +756,7 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
             )}
           </div>
           <div className=" flex flex-col items-center space-y-1 py-2">
-            <span className=" text-lg font-bold text-slate-800">
+            <span className=" text-lg font-bold text-[#0074BC]">
               {productById.name}
             </span>
             {productById.sale?.type === "percent" ? (
@@ -773,7 +773,7 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
                 </span>
               </div>
             ) : (
-              <div></div>
+              <></>
             )}
             {productById.sale?.type === "percent" ? (
               <span className=" font-semibold text-xl text-[#0074BC] ">
@@ -783,60 +783,103 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
                 đ
               </span>
             ) : (
-              <span className=" font-bold text-[#0074BC] ">
+              <span className=" text-[#0074BC] ">
                 {productById.price > 0
                   ? `${formatNumber(productById.price)}}đ`
                   : "Liên hệ"}
               </span>
             )}
-            <div className=" bg-[#0074BC] w-full flex flex-col items-center rounded-md max-w-[240px] py-[6px]">
+            <div className=" bg-[#0074BC] px-4 py-1 flex flex-col items-center rounded-md">
               <a
                 href="tel:+84982739788"
-                className=" text-sm font-bold text-white "
+                className=" text-sm text-white "
               >
-                LIÊN HỆ NGAY
+                ĐẶT LỊCH TƯ VẤN
               </a>
             </div>
           </div>
         </Box>
-        <Box className=" flex flex-col py-6 px-10 border-t-2 border-slate-400 mt-6 text-slate-700">
-            <span className="">
-              <strong>Mã sp:</strong> {productById.id}
-            </span>
-            <span className="">
-              <strong>Trần:</strong> {productById.info?.ceiling}
-            </span>
-            <span className="">
-              <strong>Vách trước:</strong> {productById.info?.frontWall}
-            </span>
-            <span className="">
-              <strong>Vách sau:</strong> {productById.info?.backWall}
-            </span>
-            <span className="">
-              <strong>Vách hông:</strong> {productById.info?.sideWall}
-            </span>
-            <span className="">
-              <strong>Tay vịn:</strong> {productById.info?.handrail}
-            </span>
-            <span className="">
-              <strong>Cửa cabin:</strong> {productById.info?.cabinDoor}
-            </span>
-            <span className="">
-              <strong>Cửa tầng chính:</strong> {productById.info?.lobby}
-            </span>
-            <span className="">
-              <strong>Cửa tầng khác:</strong> {productById.info?.floors}
-            </span>
-            <span className="">
-              <strong>Bao che:</strong> {productById.info?.gfnf}
-            </span>
-            <span className="">
-              <strong>Sàn cabin:</strong> {productById.info?.cabinFloor}
-            </span>
-            <span className=""></span>
+        <Box className=" flex flex-col py-8 px-10 border-t-2 border-slate-400 mt-6 text-slate-700">
+            <div className=" flex items-center space-x-2 ">
+              <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600">Mã sản phẩm</span>
+              <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.id}</span>
+            </div>
+            <div className=" flex items-center space-x-2 ">
+              <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600">Cửa tầng chính</span>
+              <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.lobby}</span>
+            </div>
+            <div className=" flex items-center space-x-2 ">
+              <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600">Cửa tầng khác</span>
+              <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.floors}</span>
+            </div>
+            <div className=" flex items-center space-x-2 ">
+              <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600">Cửa cabin</span>
+              <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.cabinDoor}</span>
+            </div>
+            <div className=" flex items-center space-x-2 ">
+              <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600">Bao che</span>
+              <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.gfnf}</span>
+            </div>
+            <div className=" flex items-center space-x-2 ">
+              <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600">Trần</span>
+              <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.ceiling}</span>
+            </div>
+            <div className=" flex items-center space-x-2 ">
+              <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600">Sàn cabin</span>
+              <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.cabinFloor}</span>
+            </div>
+            <div className=" flex items-center space-x-2 ">
+              <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600">Vách trước</span>
+              <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.frontWall}</span>
+            </div>
+            <div className=" flex items-center space-x-2 ">
+              <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600">Vách sau</span>
+              <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.backWall}</span>
+            </div>
+            <div className=" flex items-center space-x-2 ">
+              <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600">Vách hông</span>
+              <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.sideWall}</span>
+            </div>
+            <div className=" flex items-center space-x-2 ">
+              <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600">{productById.categoryId === "thangTaiHang" ? "Nẹp bảo vệ" : "Tay vịn"}</span>
+              <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.handrail}</span>
+            </div>
         </Box>
         <Box className="px-4">
-        <Tabs scrollable className="category-tabs">
+        <Tabs scrollable className="category-tabs rounded-lg">
           {techCategories.map((category) => (
             <Tabs.Tab key={category.id} label={category.label}>
               <Suspense>
@@ -855,7 +898,7 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
             </Tabs.Tab>
           ))}
         </Tabs>
-        <Box className=" bg-slate-50 py-6 px-4 flex flex-col items-center space-y-2">
+        {/* <Box className=" bg-slate-50 py-6 px-4 flex flex-col items-center space-y-2">
           <span className=" font-semibold text-base text-[#0074BC]">
             Để được tư vấn thêm thông tin:
           </span>
@@ -864,7 +907,7 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
               TƯ VẤN MIỄN PHÍ
             </a>
           </div>
-        </Box>
+        </Box> */}
         </Box>
         <Box className=" py-6 space-y-4 ">
           <div className=" flex items-center justify-between px-4">
@@ -873,7 +916,7 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
             </span>
           </div>
           <Swiper slidesPerView={2.15} spaceBetween={8} className="px-4">
-            {productsByCategory.map((product) => (
+            {productsByCategory.filter((product) => product.id !== productById.id).map((product) => (
               <SwiperSlide key={product.id}>
                 <Box className=" w-full ">
                   <div onClick={() => gotoProduct(product.id)} className=" relative w-full h-full  pb-2 flex flex-col items-center bg-white border-b border-r border-slate-300  rounded-lg  p-1 ">
@@ -909,19 +952,19 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
                           đ
                         </span>
                       ) : (
-                        <span className=" text-xs font-semibold text-[#0074BC] ">
+                        <span className=" text-xs text-[#0074BC] ">
                           {product.price > 0
                             ? `${formatNumber(product.price)}}đ`
                             : "Liên hệ"}
                         </span>
                       )}
 
-                      <div className=" mt-1 bg-[#0074BC] px-2 rounded-sm">
+                      <div className=" ">
                         <span
                           
-                          className=" text-xs text-white"
+                          className=" text-xs underline underline-offset-2 text-[#0074BC]"
                         >
-                          XEM CHI TIẾT
+                          Xem chi tiết
                         </span>
                       </div>
                     </div>

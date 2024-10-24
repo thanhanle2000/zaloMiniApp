@@ -41,6 +41,7 @@ export interface Product {
   image: string;
   price: number;
   categoryId: string;
+  subCategory?: string;
   refImages?: string[];
   sale?: Sale;
   info?: Info;
@@ -56,7 +57,8 @@ export interface ProductsCategory {
 export interface Pattern {
   id: string;
   lable: string;
-  image: string
+  image: string;
+  catalogImage?: string
 }
 
 export interface PatternItem {

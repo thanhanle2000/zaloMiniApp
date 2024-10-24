@@ -240,7 +240,18 @@ export const dataByTypeState = selectorFamily<
         case "products":
           const productsList = get(productsState);
           return productsList;
-
+        case "ELITE":
+          const eliteProducts = get(productsState);
+          return eliteProducts.filter(product => product.subCategory === "elite")
+        case "LUXURY":
+          const luxuryProducts = get(productsState);
+          return luxuryProducts.filter(product => product.subCategory === "luxury")
+        case "PREMIUM":
+          const premiumProducts =get(productsState);
+          return premiumProducts.filter(product => product.subCategory === "premium")
+        case "PANORAMA":
+          const panoramaProducts = get(productsState)
+          return panoramaProducts.filter(product => product.subCategory === "panorama")
         case "deal":
           const products = get(recommendProductsState);
           return products;
@@ -264,6 +275,7 @@ export const dataByTypeState = selectorFamily<
       }
     },
 });
+
 
 export const postByIdState = selectorFamily<Post[], string | undefined>({
   key: "postById",

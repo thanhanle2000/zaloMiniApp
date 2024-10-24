@@ -31,7 +31,7 @@ export const RecommendContent: FC = () => {
       <Swiper slidesPerView={1.25} spaceBetween={12} className="px-4">
         {projects.map((post) => (
           <SwiperSlide key={post.id}>
-            <div onClick={() => gotoPost(post.id)} className=" relative flex flex-col items-center bg-white border-b border-r border-slate-300  rounded-lg  p-1 ">
+            <div onClick={() => gotoPost(post.id)} className=" relative flex flex-col items-center bg-white border-b-2 border-r border-slate-300 rounded-lg p-1 ">
               <div
                 className="relative w-full aspect-video rounded-lg bg-cover bg-center bg-skeleton"
                 style={{ backgroundImage: `url(${post.thumbnail})` }}

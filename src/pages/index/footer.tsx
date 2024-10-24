@@ -6,8 +6,8 @@ export const Footer: FC = () => {
   return (
     <Box className=" flex flex-col items-start  py-8 bg-slate-50 ">
       <img
-        className=" h-[40px] object-contain"
-        src="https://thangmayviettri.vn/wp-content/uploads/2020/05/logoVietTriPNG-300x68.png"
+        className=" ml-8 h-[40px] object-contain"
+        src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/loloDangKy.png"
         alt="logo"
       />
       <div className=" flex flex-col space-y-1 items-start px-8 py-[12px] text-[#0074BC]">

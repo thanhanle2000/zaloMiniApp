@@ -14,7 +14,7 @@ export const RecommendContent: FC = () => {
   const patterns = useRecoilValue(patternsState);
 
   return (
-    <Box className=" py-6 space-y-4 ">
+    <Box className=" pt-6 pb-8 border-b-2 border-slate-200 space-y-4 ">
       <div className=" flex items-center justify-between px-4">
         <span className=" text-lg font-bold text-slate-700">
           CATALOGUE
@@ -26,14 +26,14 @@ export const RecommendContent: FC = () => {
       <Swiper slidesPerView={1.25} spaceBetween={12} className="px-4">
         {patterns.map((category) => (
           <SwiperSlide key={category.lable}>
-            <div className=" relative flex flex-col items-center bg-white border-b border-r border-slate-300  rounded-lg  p-1 ">
+            <div className=" relative flex flex-col items-center bg-white border-b-2 border-r border-slate-300  rounded-lg  p-2 ">
               <div
                 className="relative w-full aspect-video rounded-lg bg-cover bg-center bg-skeleton"
-                style={{ backgroundImage: `url(${category.image})` }}
+                style={{ backgroundImage: `url(${category.catalogImage})` }}
               />
               <div className=" flex w-full mt-1 px-4 items-center justify-between">
                 <div className=" hover:bg-slate-100 px-2 ">
-                <img className=" h-[22px] aspect-square" src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/eyesIcon.png" alt={`${category.id}eyes`} />
+                <span className=" text-sm text-[#0074BC] underline underline-offset-2 ">XEM</span>
                 </div>
                 <div className=" hover:bg-slate-100 px-2 " >
                 <img className=" h-[22px] aspect-square" src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/downloadIcon.png" alt={`${category.id}download`} />

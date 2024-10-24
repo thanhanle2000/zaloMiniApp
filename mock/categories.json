@@ -2,73 +2,73 @@
   {
     "id": "thangTaiKhach",
     "type": "products",
-    "name": "Thang tải khách",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiKhach.png"
+    "name": "Thang máy tải khách",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiKhachIcon.png"
   },
   {
     "id": "thangTaiHang",
     "type": "products",
-    "name": "Thang tải hàng",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiHang.png"
+    "name": "Thang máy tải hàng",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiHangIcon.png"
   },
   {
     "id": "thangTaiOTo",
     "type": "products",
-    "name": "Thang tải ô tô",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/ThangOto.png"
+    "name": "Thang tải ôtô",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiOtoIcon.png"
   },
   {
     "id": "thangThucPham",
     "type": "products",
-    "name": "Thang thực phẩm",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangThucPham.png"
+    "name": "Thang tải thực phẩm",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangThucPhamIcon.png"
   },
   {
     "id": "thangQuanSat",
     "type": "products",
-    "name": "Thang quan sát",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangQuanSat.png"
+    "name": "Thang máy quan sát",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangQuanSatIcon.png"
   },
   {
     "id": "thangTaiGiuongBenh",
     "type": "products",
-    "name": "Thang tải giường bệnh",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangGiuongBenh.png"
+    "name": "Thang tải bệnh viện",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangGiuongBenhIcon.png"
   },
   {
     "id": "suaChua",
     "type": "feature",
     "name": "Sửa chữa",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/suaChua.png"
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/suaChuaIcon.png"
   },
   {
     "id": "baoTri",
     "type": "feature",
     "name": "Bảo trì",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/baoTri.png"
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/baoTriIcon.png"
   },
   {
     "id": "mauMa",
     "type": "feature",
     "name": "Mẫu mã",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/mauMa.png"
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/checkListIcon.png"
   },
   {
     "id": "tinTuc",
     "type": "feature",
     "name": "Tin tức",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tinTuc.png"
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/newsIcon.png"
   },
   {
     "id": "sieuKhuyenMai",
     "type": "feature",
-    "name": "Siêu khuyến mãi",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/sieuKhuyenMai.png"
+    "name": "Khuyến mãi",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/sieuKhuyenMaiIcon.png"
   },
   {
     "id": "miniGame",
     "type": "feature",
     "name": "Mini Game",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/miniGame.png"
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/miniGameIcon.png"
   }
 ]
