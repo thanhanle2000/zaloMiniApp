@@ -6,16 +6,22 @@
     "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiKhachIcon.png"
   },
   {
+    "id": "thangQuanSat",
+    "type": "products",
+    "name": "Thang máy quan sát",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangQuanSatIcon.png"
+  },
+  {
     "id": "thangTaiHang",
     "type": "products",
     "name": "Thang máy tải hàng",
     "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiHangIcon.png"
   },
   {
-    "id": "thangTaiOTo",
+    "id": "thangTaiGiuongBenh",
     "type": "products",
-    "name": "Thang tải ôtô",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiOtoIcon.png"
+    "name": "Thang máy bệnh viện",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangGiuongBenhIcon.png"
   },
   {
     "id": "thangThucPham",
@@ -24,28 +30,22 @@
     "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangThucPhamIcon.png"
   },
   {
-    "id": "thangQuanSat",
+    "id": "thangTaiOTo",
     "type": "products",
-    "name": "Thang máy quan sát",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangQuanSatIcon.png"
+    "name": "Thang tải ô-tô",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiOtoIcon.png"
   },
   {
-    "id": "thangTaiGiuongBenh",
+    "id": "thangTaiRac",
     "type": "products",
-    "name": "Thang tải bệnh viện",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangGiuongBenhIcon.png"
+    "name": " Thang tải rác ",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiOtoIcon.png"
   },
   {
-    "id": "suaChua",
-    "type": "feature",
-    "name": "Sửa chữa",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/suaChuaIcon.png"
-  },
-  {
-    "id": "baoTri",
-    "type": "feature",
-    "name": "Bảo trì",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/baoTriIcon.png"
+    "id": "toiTaiHang",
+    "type": "products",
+    "name": " Tời tải hàng ",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/thangTaiOtoIcon.png"
   },
   {
     "id": "mauMa",
@@ -60,15 +60,27 @@
     "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/newsIcon.png"
   },
   {
+    "id": "suaChua",
+    "type": "feature",
+    "name": "Sửa chữa",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/suaChuaIcon.png"
+  },
+  {
+    "id": "baoTri",
+    "type": "feature",
+    "name": "Bảo trì",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/baoTriIcon.png"
+  },
+  {
+    "id": "caiTaoThangMay",
+    "type": "feature",
+    "name": "Cải tạo thang máy",
+    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/caiTaoThangMay.png"
+  },
+  {
     "id": "sieuKhuyenMai",
     "type": "feature",
     "name": "Khuyến mãi",
     "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/sieuKhuyenMaiIcon.png"
-  },
-  {
-    "id": "miniGame",
-    "type": "feature",
-    "name": "Mini Game",
-    "icon": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/miniGameIcon.png"
   }
 ]

@@ -23,6 +23,8 @@ export interface Info {
   cabinFloor?: string;
   cabinDoorType?: string;
   floorDoor?: string;
+  protectionRail?: string;
+  bollard?: string
 }
 
 export interface TechInfo {
@@ -38,6 +40,8 @@ export interface TechInfo {
 export interface Product {
   id: string;
   name: string;
+  createdAt: number;
+  editedAt?: number;
   image: string;
   price: number;
   categoryId: string;
@@ -66,7 +70,9 @@ export interface PatternItem {
   name: string;
   patternId: string;
   image: string;
-  sections?: Section []
+  sections?: Section [];
+  info?: Info;
+  subId?: string
 }
 
 export interface Section {
@@ -80,7 +86,7 @@ export interface Post {
   type: "news" | "services" | "aboutUs" | "projects";
   thumbnail: string;
   author?: string;
-  createAt?: string;
-  editedAt?: string;
+  createdAt: number;
+  editedAt?: number;
   sections?: Section []
 }

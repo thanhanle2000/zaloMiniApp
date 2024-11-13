@@ -142,7 +142,7 @@ const elevatorType : { [key: string] : {
   vachCabin: { moTaViTri: string[], luaChon: string[]},
   vatLieuCuaCabin: { moTaViTri: string[], luaChon: string[]},
   vatLieuCuaTang: { moTaViTri: string[], luaChon: string[]},
-  nepChanVach: { moTaViTri: string[], luaChon: string[]},
+  vachHong: { moTaViTri: string[], luaChon: string[]},
   sanPhongThang: { moTaViTri: string[], luaChon: string[]},
   tayVin: { moTaViTri: string[], luaChon: string[], hinhDang?: string[]}
 } } = {
@@ -172,7 +172,18 @@ const elevatorType : { [key: string] : {
     vachCabin: {
       moTaViTri: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vachCabinLocation1.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vachCabinLocation2.png",
+      ],
+      luaChon: [
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/paintedWhiteAlu.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/capriYellow.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/sanMarinoBlue.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/polarWhite.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline443.png",
+  
+      ],
+    },
+    vachHong: {
+      moTaViTri: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vachCabinLocation3.png",
       ],
       luaChon: [
@@ -209,17 +220,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelBrushedVibration.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelPolishMirror.png",
-      ],
-    },
-    nepChanVach: {
-      moTaViTri: [
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/nepChanVachLocation1.png",
-      ],
-      luaChon: [
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/flush.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/protruding.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/aluAnodized.png",
-  
       ],
     },
     sanPhongThang: {
@@ -285,8 +285,6 @@ const elevatorType : { [key: string] : {
     vachCabin: {
       moTaViTri: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vachCabinLocation1.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vachCabinLocation2.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vachCabinLocation3.png",
       ],
       luaChon: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline443.png",
@@ -322,14 +320,14 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelPolishMirror.png",
       ],
     },
-    nepChanVach: {
+    vachHong: {
       moTaViTri: [
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/nepChanVachLocation1.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vachCabinLocation3.png",
       ],
       luaChon: [
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/flush.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/protruding.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/aluAnodized.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline443.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelLausanneLinen.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelMontreuxMirror.png",
   
       ],
     },
@@ -396,7 +394,18 @@ const elevatorType : { [key: string] : {
     vachCabin: {
       moTaViTri: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vachCabinLocation1.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vachCabinLocation2.png",
+      ],
+      luaChon: [
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelDohaGold.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelZurichDarkBrushed.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vancouverWood.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/arosaWood.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/glass.png",
+  
+      ],
+    },
+    vachHong: {
+      moTaViTri: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vachCabinLocation3.png",
       ],
       luaChon: [
@@ -435,17 +444,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelBrushedVibration.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelPolishMirror.png",
-      ],
-    },
-    nepChanVach: {
-      moTaViTri: [
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/nepChanVachLocation1.png",
-      ],
-      luaChon: [
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/flush.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/protruding.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/aluAnodized.png",
-  
       ],
     },
     sanPhongThang: {
@@ -517,6 +515,15 @@ const elevatorType : { [key: string] : {
       ],
       luaChon: [],
     },
+    vachHong: {
+      moTaViTri: [
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vachCabinHong1.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vachCabinHong2.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vachCabinSau1.png",
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vachCabinSau2.png",
+      ],
+      luaChon: [],
+    },
     vatLieuCuaCabin: {
       moTaViTri: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vatLieuCuaCabinLoaction1.png",
@@ -542,17 +549,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelBrushedVibration.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelPolishMirror.png",
-      ],
-    },
-    nepChanVach: {
-      moTaViTri: [
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/nepChanVachLocation1.png",
-      ],
-      luaChon: [
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/flush.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/protruding.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/aluAnodized.png",
-  
       ],
     },
     sanPhongThang: {
@@ -595,39 +591,41 @@ const elevatorType : { [key: string] : {
 const selectList1 = [
   {
     id: "tranPhongThang",
-    label: "Trần phòng thang",
-  },
-  {
-    id: "vachCabin",
-    label: "Vách cabin",
-  },
-  {
-    id: "vatLieuCuaTang",
-    label: "Vật liệu cửa tầng",
-  },
-  {
-    id: "sanPhongThang",
-    label: "Sàn phòng thang",
-  },
-];
-
-const selectList2 = [
-  {
-    id: "chieuSang",
-    label: "Chiếu sáng",
-  },
-  {
-    id: "vatLieuCuaCabin",
-    label: "Vật liệu cửa cabin",
-  },
-  {
-    id: "nepChanVach",
-    label: "Nẹp chân vách",
+    label: "Trần",
   },
   {
     id: "tayVin",
     label: "Tay vịn",
   },
+  {
+    id: "sanPhongThang",
+    label: "Sàn",
+  },
+  {
+    id: "chieuSang",
+    label: "Chiếu sáng",
+  },
+  
+];
+
+const selectList2 = [
+  {
+    id: "vachCabin",
+    label: "Vách sau",
+  },
+  {
+    id: "vachHong",
+    label: "Vách hông",
+  },
+  {
+    id: "vatLieuCuaCabin",
+    label: "Cửa cabin",
+  },
+  {
+    id: "vatLieuCuaTang",
+    label: "Cửa tầng",
+  },
+  
 ];
 
 const ProductTemplate: FC<{ productId: string | undefined }> = ({
@@ -687,100 +685,100 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
             )}
           </div>
         </Box>
-        <Box className=" flex flex-col pt-4 pb-8 px-10 text-slate-700">
-          <div className=" flex items-center space-x-2 ">
+        <Box className=" flex flex-col pt-4 pb-8 px-4 text-slate-700">
+          { !!products[0].id && (<div className=" flex items-start space-x-2 justify-start ">
             <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Mã sản phẩm</span>
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Mã sản phẩm</span>
               <span>:</span>
             </div>
             <span className=" text-sm font-semibold text-[#0074BC] ">
               {products[0].id}
             </span>
-          </div>
-          <div className=" flex items-center space-x-2 ">
+          </div>)}
+          { !!products[0].info?.lobby && (<div className=" flex items-start space-x-2 justify-start ">
             <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Cửa tầng chính</span>
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Cửa tầng chính</span>
               <span>:</span>
             </div>
             <span className=" text-sm font-semibold text-[#0074BC] ">
               {products[0].info?.lobby}
             </span>
-          </div>
-          <div className=" flex items-center space-x-2 ">
+          </div>)}
+          { !!products[0].info?.floors && (<div className=" flex items-start space-x-2 justify-start ">
             <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Cửa tầng khác</span>
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Cửa tầng khác</span>
               <span>:</span>
             </div>
             <span className=" text-sm font-semibold text-[#0074BC] ">
               {products[0].info?.floors}
             </span>
-          </div>
-          <div className=" flex items-center space-x-2 ">
+          </div>)}
+          { !!products[0].info?.cabinDoor && (<div className=" flex items-start space-x-2 justify-start ">
             <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Cửa cabin</span>
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Cửa cabin</span>
               <span>:</span>
             </div>
             <span className=" text-sm font-semibold text-[#0074BC] ">
               {products[0].info?.cabinDoor}
             </span>
-          </div>
-          <div className=" flex items-center space-x-2 ">
+          </div>)}
+          { !!products[0].info?.gfnf && (<div className=" flex items-start space-x-2 justify-start ">
             <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Bao che</span>
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Bao che</span>
               <span>:</span>
             </div>
-            <span className=" text-sm font-semibold text-[#0074BC] ">
+            <span className=" text-sm font-semibold text-[#0074BC]">
               {products[0].info?.gfnf}
             </span>
-          </div>
-          <div className=" flex items-center space-x-2 ">
+          </div>)}
+          { !!products[0].info?.ceiling && (<div className=" flex items-start space-x-2 justify-start ">
             <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Trần</span>
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Trần</span>
               <span>:</span>
             </div>
             <span className=" text-sm font-semibold text-[#0074BC] ">
               {products[0].info?.ceiling}
             </span>
-          </div>
-          <div className=" flex items-center space-x-2 ">
+          </div>)}
+          { !!products[0].info?.cabinFloor && (<div className=" flex items-start space-x-2 justify-start ">
             <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Sàn cabin</span>
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Sàn cabin</span>
               <span>:</span>
             </div>
             <span className=" text-sm font-semibold text-[#0074BC] ">
               {products[0].info?.cabinFloor}
             </span>
-          </div>
-          <div className=" flex items-center space-x-2 ">
+          </div>)}
+          { !!products[0].info?.frontWall && (<div className=" flex items-start space-x-2 justify-start ">
             <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Vách trước</span>
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Vách trước</span>
               <span>:</span>
             </div>
             <span className=" text-sm font-semibold text-[#0074BC] ">
               {products[0].info?.frontWall}
             </span>
-          </div>
-          <div className=" flex items-center space-x-2 ">
+          </div>)}
+          { !!products[0].info?.backWall && ( <div className=" flex items-start space-x-2 justify-start ">
             <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Vách sau</span>
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Vách sau</span>
               <span>:</span>
             </div>
             <span className=" text-sm font-semibold text-[#0074BC] ">
               {products[0].info?.backWall}
             </span>
-          </div>
-          <div className=" flex items-center space-x-2 ">
+          </div>)}
+          { !!products[0].info?.sideWall && (<div className=" flex items-start space-x-2 justify-start ">
             <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Vách hông</span>
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Vách hông</span>
               <span>:</span>
             </div>
             <span className=" text-sm font-semibold text-[#0074BC] ">
               {products[0].info?.sideWall}
             </span>
-          </div>
-          <div className=" flex items-center space-x-2 ">
+          </div>)}
+          { !!products[0].info?.handrail && (<div className=" flex items-start space-x-2 justify-start ">
             <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">
+              <span className=" text-sm text-slate-600 whitespace-nowrap">
                 {products[0].categoryId === "thangTaiHang"
                   ? "Nẹp bảo vệ"
                   : "Tay vịn"}
@@ -790,29 +788,29 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
             <span className=" text-sm font-semibold text-[#0074BC] ">
               {products[0].info?.handrail}
             </span>
-          </div>
+          </div>)}
         </Box>
         <Box className=" px-4 ">
           <div className=" flex flex-col items-center border-t-2 border-slate-400 pt-6 pb-10">
-            <span className=" font-semibold text-lg text-slate-700">
-              PHƯƠNG ÁN TÙY CHỌN
+            <span className=" font-semibold text-center text-lg text-slate-700">
+            TÙY CHỌN MẪU MÃ/VẬT LIỆU
             </span>
             <div className=" mt-4 flex items-start space-x-2">
-              <div className=" flex flex-col items-center space-y-[6px] ">
+              <div className=" flex flex-col items-center min-w-[110px] space-y-[6px] ">
                 {selectList1.map((item) => (
                   <span
                     onClick={() => handleClick(item.id)}
-                    className=" px-2 text-sm w-full py-1 bg-slate-300 border text-center border-[#0074BC] text-[#0074BC] rounded-lg "
+                    className=" px-2 w-full py-1 bg-slate-300 border text-center border-[#0074BC] text-[#0074BC] rounded-lg "
                   >
                     {item.label}
                   </span>
                 ))}
               </div>
-              <div className=" flex flex-col items-center space-y-[6px] ">
+              <div className=" flex flex-col items-center min-w-[110px] space-y-[6px] ">
                 {selectList2.map((item) => (
                   <span
                     onClick={() => handleClick(item.id)}
-                    className=" px-2 text-sm w-full py-1 bg-slate-300 border text-center border-[#0074BC] text-[#0074BC] rounded-lg "
+                    className=" px-2 w-full py-1 bg-slate-300 border text-center border-[#0074BC] text-[#0074BC] rounded-lg "
                   >
                     {item.label}
                   </span>
@@ -820,9 +818,9 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
               </div>
             </div>
             <div className=" mt-6 bg-[#0074BC] px-4 py-1 flex flex-col items-center rounded-md">
-              <a href="tel:+84982739788" className=" text-sm text-white ">
+              <div onClick={() => navigate("/booking")} className=" text-sm text-white ">
                 ĐẶT LỊCH TƯ VẤN
-              </a>
+              </div>
             </div>
           </div>
         </Box>
@@ -929,8 +927,8 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
           swipeToClose
         >
           <Box >
-            <div className=" px-6 py-2">
-            <div className=" flex flex-col min-h-[400px]">
+            <div className=" px-6 pt-2 pb-[48px]">
+            <div className=" flex flex-col min-h-[360px]">
               <div className=" flex items-start">
                 <span className=" text-sm w-[90px] text-slate-700 whitespace-nowrap">Mô tả vị trí :</span>
                 <div className=" w-full flex flex-wrap max-h-[210px] overflow-y-scroll">

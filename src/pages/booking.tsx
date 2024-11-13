@@ -64,7 +64,7 @@ const BookingContext: FC = () => {
                   <div>
                     :{" "}
                     <input
-                      className=" ring-0 outline-none px-2 border-b border-slate-400 "
+                      className=" ring-0 outline-none min-w-[180px] px-2 border-b border-slate-400 "
                       type="text"
                       name="name"
                       value={formData.name}
@@ -80,7 +80,7 @@ const BookingContext: FC = () => {
                   <div>
                     :{" "}
                     <input
-                      className="ring-0 outline-none px-2 border-b border-slate-400"
+                      className="ring-0 outline-none min-w-[180px] px-2 border-b border-slate-400"
                       type="tel"
                       pattern="[0-9]{10}"
                       name="phoneNumber"
@@ -98,7 +98,7 @@ const BookingContext: FC = () => {
                     <div>
                       :
                       <input
-                        className="ring-0 outline-none px-2 border-b border-slate-400 placeholder:text-sm placeholder:italic placeholder:text-slate-300"
+                        className="ring-0 outline-none min-w-[180px] px-2 border-b border-slate-400 placeholder:text-sm placeholder:italic placeholder:text-slate-300"
                         placeholder="Số nhà, tên đường, phường/xã"
                         type="text"
                         name="street"
@@ -107,7 +107,7 @@ const BookingContext: FC = () => {
                       />
                     </div>
                     <input
-                      className="ring-0 outline-none px-2 border-b border-slate-400 placeholder:text-sm placeholder:italic placeholder:text-slate-300"
+                      className="ring-0 outline-none min-w-[180px] px-2 border-b border-slate-400 placeholder:text-sm placeholder:italic placeholder:text-slate-300"
                       placeholder="Quận/Huyện"
                       type="text"
                       name="state"
@@ -115,7 +115,7 @@ const BookingContext: FC = () => {
                       onChange={handleChange}
                     />
                     <input
-                      className="ring-0 outline-none px-2 border-b border-slate-400 placeholder:text-sm placeholder:italic placeholder:text-slate-400"
+                      className="ring-0 outline-none min-w-[180px] px-2 border-b border-slate-400 placeholder:text-sm placeholder:italic placeholder:text-slate-400"
                       placeholder="* Thành phố/Tỉnh"
                       type="text"
                       name="city"
@@ -125,12 +125,12 @@ const BookingContext: FC = () => {
                     />
                   </div>
                 </div>
-                <div className=" py-1 flex  items-start space-x-1">
+                <div className=" py-1 flex  items-start space-x-2">
                   <label className=" w-[120px] text-sm text-slate-700 whitespace-nowrap">
                     Dịch vụ quan tâm * :
                   </label>
                   <div className=" flex flex-col items-start">
-                    <div className=" flex items-center space-x-1">
+                    <div className=" flex items-start justify-start space-x-1">
                       <input
                         type="radio"
                         name="preferredService"
@@ -138,11 +138,11 @@ const BookingContext: FC = () => {
                         checked={formData.preferredService === "lapDatThangMoi"}
                         onChange={handleChange}
                       />
-                      <label className=" text-sm text-slate-700 italic">
+                      <label className=" text-sm text-slate-700 italic max-w-[180px]">
                         Thiết kế, sản xuất, lắp đặt thang mới
                       </label>
                     </div>
-                    <div className=" flex items-center space-x-1">
+                    <div className=" flex items-start justify-start space-x-1">
                       <input
                         type="radio"
                         name="preferredService"
@@ -150,11 +150,11 @@ const BookingContext: FC = () => {
                         checked={formData.preferredService === "baoTri"}
                         onChange={handleChange}
                       />
-                      <label className=" text-sm text-slate-700 italic">
+                      <label className=" text-sm text-slate-700 italic max-w-[180px]">
                         Dịch vụ Bảo Trì
                       </label>
                     </div>
-                    <div className=" flex items-center space-x-1">
+                    <div className=" flex items-start justify-start space-x-1">
                       <input
                         type="radio"
                         name="preferredService"
@@ -162,11 +162,11 @@ const BookingContext: FC = () => {
                         checked={formData.preferredService === "suaChua"}
                         onChange={handleChange}
                       />
-                      <label className=" text-sm text-slate-700 italic">
+                      <label className=" text-sm text-slate-700 italic max-w-[180px]">
                         Dịch vụ Sửa chữa
                       </label>
                     </div>
-                    <div className=" flex items-center space-x-1">
+                    <div className=" flex items-start justify-start space-x-1">
                       <input
                         type="radio"
                         name="preferredService"
@@ -174,7 +174,7 @@ const BookingContext: FC = () => {
                         checked={formData.preferredService === "caiTaoThangMay"}
                         onChange={handleChange}
                       />
-                      <label className=" text-sm text-slate-700 italic">
+                      <label className=" text-sm text-slate-700 italic max-w-[180px]">
                         Dịch vụ Cải tạo Thang Máy
                       </label>
                     </div>
@@ -188,7 +188,7 @@ const BookingContext: FC = () => {
                   <div className=" justify-start flex">
                     :
                     <textarea
-                      className=" ring-0 outline-none px-2 py-1 border-b border-slate-400 placeholder:text-slate-300 placeholder:italic"
+                      className=" ring-0 outline-none min-w-[180px] px-2 py-1 border-b border-slate-400 placeholder:text-slate-300 placeholder:italic"
                       placeholder="Nhập nội dung"
                       name="details"
                       value={formData.details}

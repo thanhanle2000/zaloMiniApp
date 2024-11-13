@@ -117,7 +117,15 @@ const defaultTechSpec: { [key: string]: { [key: string]: Section[] } } = {
     ],
     shaft: [
       {
-        type: "space",
+        type: "paragraph",
+        content: [
+          "1.	Hố pit được chống thấm kho sạch, kích thước hố pit đủ đảm bảo kích thước yêu cầu theo thiết kế.",
+          "2.	Khoảng chừa trống chiều ngang và chiều cao các cửa tầng đủ theo yêu cầu thiết kế để lắp đặt cửa.",
+          "3.	Hệ thống đà chịu lực quanh hố thang đủ để đảm bảo bắt hệ thống ray đạt tiêu chuẩn.",
+          "4.	Chiều cao tầng trên cùng (OH) đủ kích thước yêu cầu, đà chịu lực chính cho thang máy.",
+          "5.	Khoảng lổ chừa máy kéo, các lổ thiết bị và lổ tín hiệu ở các tầng.",
+          "6.	Móc treo palang (dùng khi thi công và sửa chữa)."
+        ]
       },
     ],
     // images: [
@@ -790,93 +798,133 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
               </span>
             )}
             <div className=" bg-[#0074BC] px-4 py-1 flex flex-col items-center rounded-md">
-              <a
-                href="tel:+84982739788"
+              <div
+                onClick={() => navigate("/booking")}
                 className=" text-sm text-white "
               >
                 ĐẶT LỊCH TƯ VẤN
-              </a>
+              </div>
             </div>
           </div>
         </Box>
-        <Box className=" flex flex-col py-8 px-10 border-t-2 border-slate-400 mt-6 text-slate-700">
-            <div className=" flex items-center space-x-2 ">
-              <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Mã sản phẩm</span>
+        <Box className=" flex flex-col py-8 px-4 border-t-2 border-slate-400 mt-6 text-slate-700">
+        { !!productById.id && (<div className=" flex items-start justify-start space-x-2 ">
+            <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Mã sản phẩm</span>
               <span>:</span>
-              </div>
-              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.id}</span>
             </div>
-            <div className=" flex items-center space-x-2 ">
-              <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Cửa tầng chính</span>
+            <span className=" text-sm font-semibold text-[#0074BC] ">
+              {productById.id}
+            </span>
+          </div>)}
+          { !!productById.info?.lobby && (<div className=" flex items-start justify-start space-x-2 ">
+            <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Cửa tầng chính</span>
               <span>:</span>
-              </div>
-              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.lobby}</span>
             </div>
-            <div className=" flex items-center space-x-2 ">
-              <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Cửa tầng khác</span>
+            <span className=" text-sm font-semibold text-[#0074BC] ">
+              {productById.info?.lobby}
+            </span>
+          </div>)}
+          { !!productById.info?.floors && (<div className=" flex items-start justify-start space-x-2 ">
+            <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Cửa tầng khác</span>
               <span>:</span>
-              </div>
-              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.floors}</span>
             </div>
-            <div className=" flex items-center space-x-2 ">
-              <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Cửa cabin</span>
+            <span className=" text-sm font-semibold text-[#0074BC] ">
+              {productById.info?.floors}
+            </span>
+          </div>)}
+          { !!productById.info?.cabinDoor && (<div className=" flex items-start justify-start space-x-2 ">
+            <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Cửa cabin</span>
               <span>:</span>
-              </div>
-              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.cabinDoor}</span>
             </div>
-            <div className=" flex items-center space-x-2 ">
-              <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Bao che</span>
+            <span className=" text-sm font-semibold text-[#0074BC] ">
+              {productById.info?.cabinDoor}
+            </span>
+          </div>)}
+          { !!productById.info?.gfnf && (<div className=" flex items-start justify-start space-x-2 ">
+            <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Bao che</span>
               <span>:</span>
-              </div>
-              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.gfnf}</span>
             </div>
-            <div className=" flex items-center space-x-2 ">
-              <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Trần</span>
+            <span className=" text-sm font-semibold text-[#0074BC] ">
+              {productById.info?.gfnf}
+            </span>
+          </div>)}
+          { !!productById.info?.ceiling && (<div className=" flex items-start justify-start space-x-2 ">
+            <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Trần</span>
               <span>:</span>
-              </div>
-              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.ceiling}</span>
             </div>
-            <div className=" flex items-center space-x-2 ">
-              <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Sàn cabin</span>
+            <span className=" text-sm font-semibold text-[#0074BC] ">
+              {productById.info?.ceiling}
+            </span>
+          </div>)}
+          { !!productById.info?.cabinFloor && (<div className=" flex items-start justify-start space-x-2 ">
+            <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Sàn cabin</span>
               <span>:</span>
-              </div>
-              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.cabinFloor}</span>
             </div>
-            <div className=" flex items-center space-x-2 ">
-              <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Vách trước</span>
+            <span className=" text-sm font-semibold text-[#0074BC] ">
+              {productById.info?.cabinFloor}
+            </span>
+          </div>)}
+          { !!productById.info?.frontWall && (<div className=" flex items-start justify-start space-x-2 ">
+            <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Vách trước</span>
               <span>:</span>
-              </div>
-              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.frontWall}</span>
             </div>
-            <div className=" flex items-center space-x-2 ">
-              <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Vách sau</span>
+            <span className=" text-sm font-semibold text-[#0074BC] ">
+              {productById.info?.frontWall}
+            </span>
+          </div>)}
+          { !!productById.info?.backWall && ( <div className=" flex items-start justify-start space-x-2 ">
+            <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Vách sau</span>
               <span>:</span>
-              </div>
-              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.backWall}</span>
             </div>
-            <div className=" flex items-center space-x-2 ">
-              <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">Vách hông</span>
+            <span className=" text-sm font-semibold text-[#0074BC] ">
+              {productById.info?.backWall}
+            </span>
+          </div>)}
+          { !!productById.info?.sideWall && (<div className=" flex items-start justify-start space-x-2 ">
+            <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Vách hông</span>
               <span>:</span>
-              </div>
-              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.sideWall}</span>
             </div>
-            <div className=" flex items-center space-x-2 ">
-              <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600">{productById.categoryId === "thangTaiHang" ? "Nẹp bảo vệ" : "Tay vịn"}</span>
+            <span className=" text-sm font-semibold text-[#0074BC] ">
+              {productById.info?.sideWall}
+            </span>
+          </div>)}
+          { !!productById.info?.handrail && (<div className=" flex items-start justify-start space-x-2 ">
+            <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Tay vịn</span>
               <span>:</span>
-              </div>
-              <span className=" text-sm font-semibold text-[#0074BC] ">{productById.info?.handrail}</span>
             </div>
+            <span className=" text-sm font-semibold text-[#0074BC] ">
+              {productById.info?.handrail}
+            </span>
+          </div>)}
+          { !!productById.info?.protectionRail && (<div className=" flex items-start justify-start space-x-2 ">
+            <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Nẹp bảo vệ</span>
+              <span>:</span>
+            </div>
+            <span className=" text-sm font-semibold text-[#0074BC] ">
+              {productById.info?.protectionRail}
+            </span>
+          </div>)}
+          { !!productById.info?.bollard && (<div className=" flex items-start justify-start space-x-2 ">
+            <div className=" flex items-center justify-between w-[100px] ">
+              <span className=" text-sm text-slate-600 whitespace-nowrap">Trụ bảo vệ</span>
+              <span>:</span>
+            </div>
+            <span className=" text-sm font-semibold text-[#0074BC] ">
+              {productById.info?.bollard}
+            </span>
+          </div>)}
         </Box>
         <Box className="px-4">
         <Tabs scrollable className="category-tabs rounded-lg">

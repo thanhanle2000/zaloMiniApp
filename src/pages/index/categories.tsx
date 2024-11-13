@@ -34,8 +34,8 @@ export const Categories: FC = () => {
         case "sieuKhuyenMai": 
           navigate('/events')
           break
-        case "miniGame":
-          navigate('/games')
+        case "caiTaoThangMay":
+          navigate('/caiTaoThangMay')
           break
         default: 
           navigate('/')
@@ -55,12 +55,12 @@ export const Categories: FC = () => {
         <span className=" text-base text-slate-600 font-semibold">{user.name}</span>
       </Box>
       <Box className=" mt-6 grid grid-cols-4 gap-x-2 gap-y-4">
-        {categories.map((item) => (
+        {categories.filter(item => (item.id !== "thangTaiRac" && item.id !== "toiTaiHang")).map((item) => (
           <div onClick={() => gotoCategory(item.type, item.id)} key={item.id} className=" flex flex-col items-center text-center space-y-1" >
             <div className=" bg-[#0068b2] rounded-md  p-[6px]">
               <img className=" max-w-[46px] aspect-square" src={item.icon} alt={item.id} />
             </div>
-            <span className=" text-xs text-slate-700 max-w-[70px] ">{item.name}</span>
+            <span className={` ${item.id === "thangTaiOTo" ? "max-w-[60px]" : "max-w-[70px]"} text-xs text-slate-700`}>{item.name}</span>
           </div>
         ))}
       </Box>

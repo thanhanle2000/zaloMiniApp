@@ -47,6 +47,7 @@ export const RecommendContent: FC = () => {
               <div className="" >
                 <span className=" underline underline-offset-2 text-xs text-[#0074BC]">Xem chi tiết</span>
               </div>
+          
             </div>
           </SwiperSlide>
         ))}

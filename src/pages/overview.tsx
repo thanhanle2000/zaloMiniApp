@@ -101,7 +101,7 @@ export const OverviewPage: FC = () => {
                             {post.title}
                           </span>
                           <span className=" text-slate-500 text-sm ">
-                            {convertTimestamp(post.createAt)}
+                            {convertTimestamp(post.createdAt)}
                           </span>
                           </div>
                         </>

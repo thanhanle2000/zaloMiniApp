@@ -103,14 +103,14 @@ export const patternsState = selector<Pattern[]>({
   get: () => patterns,
 });
 
-export const postsState = selector<Post[]>({
-  key: "posts",
-  get: async () => {
-    await wait(2000);
-    const posts = (await import("../mock/posts.json")).default;
-    return posts.map((post) => ({ ...post } as Post));
-  },
-});
+// export const postsState = selector<Post[]>({
+//   key: "posts",
+//   get: async () => {
+//     await wait(2000);
+//     const posts = (await import("../mock/posts.json")).default;
+//     return posts.map((post) => ({ ...post } as Post));
+//   },
+// });
 
 export const newsState = selector<Post[]>({
   key: "news",
@@ -201,6 +201,7 @@ export const productsByCategoryState = selectorFamily<Product[], string>({
           method: "GET",
         }
       );
+      console.log(res)
       if (res.ok) {
         return res.json();
       } else {

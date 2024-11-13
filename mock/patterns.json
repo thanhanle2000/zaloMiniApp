@@ -26,14 +26,14 @@
     {
         "id": "hoaVanInox",
         "lable": "HOA VĂN INOX",
-        "image": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tranGiaPT.png",
-        "catalogImage": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tranGiaImage.png"
+        "image": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/hoaVanInoxPT.png",
+        "catalogImage": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/hoaVanInoxImage.png"
     },
     {
         "id": "vatLieu",
         "lable": "VẬT LIỆU",
-        "image": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tranGiaPT.png",
-        "catalogImage": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tranGiaImage.png"
+        "image": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vatLieuPT.png",
+        "catalogImage": "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vatLieuImage.png"
     },
     {
         "id": "tayVin",

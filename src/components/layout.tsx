@@ -14,7 +14,7 @@ import { PostPage } from "pages/post";
 import PatternPage from "pages/pattern";
 import { OverviewPage } from "pages/overview";
 import { EventsPage } from "pages/events";
-import { GamesPage } from "pages/games";
+import { CaiTaoThangMayPage } from "pages/caiTaoThangMay";
 import { Contact } from "./contact";
 import BookingPage from "pages/booking";
 import PassElevatorPage from "pages/passElevator";
@@ -47,7 +47,7 @@ export const Layout: FC = () => {
           <Route path="/overview/:type" element={<OverviewPage />}></Route>
           <Route path="/elevator/:productId" element={<PassElevatorPage />}></Route>
           <Route path="/events" element={<EventsPage/>}></Route>
-          <Route path="/games" element={<GamesPage/>}></Route>
+          <Route path="/caiTaoThangMay" element={<CaiTaoThangMayPage/>}></Route>
           <Route path="/profile" element={<ProfilePage />}></Route>
           <Route path="/pattern" element={<PatternPage />}></Route>
         </Routes>

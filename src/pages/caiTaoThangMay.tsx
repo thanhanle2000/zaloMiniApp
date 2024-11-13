@@ -7,14 +7,14 @@ import { Page, Header, Box, Text } from "zmp-ui";
 
 
 
-export const GamesPage: FC = () => {
+export const CaiTaoThangMayPage: FC = () => {
 
     const { type } = useParams();
     const navigate = useNavigate();
 
     return (
       <Page className="flex flex-col ">
-        <Header backgroundColor="#0068b2" textColor="white" title="MINI GAME" />
+        <Header backgroundColor="#0068b2" textColor="white" title="CẢI TẠO THANG MÁY" />
         <Suspense>
           <div className=" flex items-center justify-center py-4 px-4" >
             <span className=" text-slate-500">Đang cập nhật...</span>
