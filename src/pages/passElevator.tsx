@@ -136,19 +136,20 @@ const defaultTechSpec: { [key: string]: { [key: string]: Section[] } } = {
   },
 };
 
-const elevatorType : { [key: string] : { 
-  tranPhongThang: { moTaViTri: string[], luaChon: string[]} ,
-  chieuSang: { moTaViTri: string[], luaChon: string[]},
-  vachCabin: { moTaViTri: string[], luaChon: string[]},
-  vatLieuCuaCabin: { moTaViTri: string[], luaChon: string[]},
-  vatLieuCuaTang: { moTaViTri: string[], luaChon: string[]},
-  vachHong: { moTaViTri: string[], luaChon: string[]},
-  sanPhongThang: { moTaViTri: string[], luaChon: string[]},
-  tayVin: { moTaViTri: string[], luaChon: string[], hinhDang?: string[]}
-} } = {
-
+const elevatorType: {
+  [key: string]: {
+    tranPhongThang: { moTaViTri: string[]; luaChon: string[] };
+    chieuSang: { moTaViTri: string[]; luaChon: string[] };
+    vachCabin: { moTaViTri: string[]; luaChon: string[] };
+    vatLieuCuaCabin: { moTaViTri: string[]; luaChon: string[] };
+    vatLieuCuaTang: { moTaViTri: string[]; luaChon: string[] };
+    vachHong: { moTaViTri: string[]; luaChon: string[] };
+    sanPhongThang: { moTaViTri: string[]; luaChon: string[] };
+    tayVin: { moTaViTri: string[]; luaChon: string[]; hinhDang?: string[] };
+  };
+} = {
   ELITE: {
-    tranPhongThang : {
+    tranPhongThang: {
       moTaViTri: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tranPhongThangLocation.png",
       ],
@@ -165,8 +166,7 @@ const elevatorType : { [key: string] : {
       luaChon: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/centerLight.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/line.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/roundSpots.png"
-  
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/roundSpots.png",
       ],
     },
     vachCabin: {
@@ -179,7 +179,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/sanMarinoBlue.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/polarWhite.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline443.png",
-  
       ],
     },
     vachHong: {
@@ -192,7 +191,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/sanMarinoBlue.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/polarWhite.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline443.png",
-  
       ],
     },
     vatLieuCuaCabin: {
@@ -204,7 +202,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline443.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelLausanneLinen.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelMontreuxMirror.png",
-  
       ],
     },
     vatLieuCuaTang: {
@@ -233,7 +230,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/artificialGraniteBlack.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/rubberSpeckledLightGrey.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/rubberSpeckledBlack.png",
-  
       ],
     },
     tayVin: {
@@ -248,17 +244,16 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelMontreuxMirror.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/paintedWhiteAlu.png",
-  
       ],
       hinhDang: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tayVinShape1.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tayVinShape2.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tayVinShape3.png",
       ],
-    }
+    },
   },
   LUXURY: {
-    tranPhongThang : {
+    tranPhongThang: {
       moTaViTri: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tranPhongThangLocation.png",
       ],
@@ -278,8 +273,7 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/line.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/roundSpots.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/squareSpots.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/bracket.png"
-  
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/bracket.png",
       ],
     },
     vachCabin: {
@@ -290,7 +284,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline443.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelLausanneLinen.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelMontreuxMirror.png",
-  
       ],
     },
     vatLieuCuaCabin: {
@@ -302,7 +295,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline443.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelLausanneLinen.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelMontreuxMirror.png",
-  
       ],
     },
     vatLieuCuaTang: {
@@ -328,7 +320,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline443.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelLausanneLinen.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelMontreuxMirror.png",
-  
       ],
     },
     sanPhongThang: {
@@ -342,7 +333,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/artificialGraniteBlack.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/rubberSpeckledLightGrey.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/rubberSpeckledBlack.png",
-  
       ],
     },
     tayVin: {
@@ -357,17 +347,16 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelMontreuxMirror.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/paintedWhiteAlu.png",
-  
       ],
       hinhDang: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tayVinShape1.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tayVinShape2.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tayVinShape3.png",
       ],
-    }
+    },
   },
   PREMIUM: {
-    tranPhongThang : {
+    tranPhongThang: {
       moTaViTri: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tranPhongThangLocation.png",
       ],
@@ -387,8 +376,7 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/line.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/roundSpots.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/squareSpots.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/bracket.png"
-  
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/bracket.png",
       ],
     },
     vachCabin: {
@@ -401,7 +389,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vancouverWood.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/arosaWood.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/glass.png",
-  
       ],
     },
     vachHong: {
@@ -414,7 +401,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/vancouverWood.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/arosaWood.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/glass.png",
-  
       ],
     },
     vatLieuCuaCabin: {
@@ -428,7 +414,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelMontreuxMirror.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelZurichDarkBrushed.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelDohaGold.png",
-  
       ],
     },
     vatLieuCuaTang: {
@@ -457,7 +442,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/artificialGraniteBlack.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/rubberSpeckledLightGrey.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/rubberSpeckledBlack.png",
-  
       ],
     },
     tayVin: {
@@ -472,17 +456,16 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelMontreuxMirror.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/paintedWhiteAlu.png",
-  
       ],
       hinhDang: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tayVinShape1.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tayVinShape2.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tayVinShape3.png",
       ],
-    }
+    },
   },
   PANORAMA: {
-    tranPhongThang : {
+    tranPhongThang: {
       moTaViTri: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tranPhongThangLocation.png",
       ],
@@ -502,8 +485,7 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/line.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/roundSpots.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/squareSpots.png",
-        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/bracket.png"
-  
+        "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/bracket.png",
       ],
     },
     vachCabin: {
@@ -533,7 +515,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline443.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelLausanneLinen.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelMontreuxMirror.png",
-  
       ],
     },
     vatLieuCuaTang: {
@@ -562,7 +543,6 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/artificialGraniteBlack.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/rubberSpeckledLightGrey.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/rubberSpeckledBlack.png",
-  
       ],
     },
     tayVin: {
@@ -577,14 +557,13 @@ const elevatorType : { [key: string] : {
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelMontreuxMirror.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/steelHairline.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/paintedWhiteAlu.png",
-  
       ],
       hinhDang: [
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tayVinShape1.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tayVinShape2.png",
         "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/tayVinShape3.png",
       ],
-    }
+    },
   },
 };
 
@@ -605,7 +584,6 @@ const selectList1 = [
     id: "chieuSang",
     label: "Chiếu sáng",
   },
-  
 ];
 
 const selectList2 = [
@@ -625,13 +603,16 @@ const selectList2 = [
     id: "vatLieuCuaTang",
     label: "Cửa tầng",
   },
-  
 ];
 
 const ProductTemplate: FC<{ productId: string | undefined }> = ({
   productId,
 }) => {
-  const [sheetData, setSheetData] = useState<{ moTaViTri: string[], luaChon: string[], hinhDang?: string[]}>({moTaViTri: [], luaChon: []}) 
+  const [sheetData, setSheetData] = useState<{
+    moTaViTri: string[];
+    luaChon: string[];
+    hinhDang?: string[];
+  }>({ moTaViTri: [], luaChon: [] });
   const [sheetVisible, setSheetVisible] = useState(false);
   const products = useRecoilValue(dataByTypeState(productId)) as Product[];
   const productsByCategory = useRecoilValue(
@@ -646,10 +627,14 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
   };
 
   const handleClick = (itemId: string) => {
-    if(!! productId ) {
-      const sheetDataMount = elevatorType[productId][itemId] as { moTaViTri: string[], luaChon: string[], hinhDang?: string[]}
-      setSheetData(sheetDataMount)
-      console.log(sheetData)
+    if (!!productId) {
+      const sheetDataMount = elevatorType[productId][itemId] as {
+        moTaViTri: string[];
+        luaChon: string[];
+        hinhDang?: string[];
+      };
+      setSheetData(sheetDataMount);
+      
     }
     setSheetVisible(true);
   };
@@ -686,119 +671,162 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
           </div>
         </Box>
         <Box className=" flex flex-col pt-4 pb-8 px-4 text-slate-700">
-          { !!products[0].id && (<div className=" flex items-start space-x-2 justify-start ">
-            <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600 whitespace-nowrap">Mã sản phẩm</span>
-              <span>:</span>
-            </div>
-            <span className=" text-sm font-semibold text-[#0074BC] ">
-              {products[0].id}
-            </span>
-          </div>)}
-          { !!products[0].info?.lobby && (<div className=" flex items-start space-x-2 justify-start ">
-            <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600 whitespace-nowrap">Cửa tầng chính</span>
-              <span>:</span>
-            </div>
-            <span className=" text-sm font-semibold text-[#0074BC] ">
-              {products[0].info?.lobby}
-            </span>
-          </div>)}
-          { !!products[0].info?.floors && (<div className=" flex items-start space-x-2 justify-start ">
-            <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600 whitespace-nowrap">Cửa tầng khác</span>
-              <span>:</span>
-            </div>
-            <span className=" text-sm font-semibold text-[#0074BC] ">
-              {products[0].info?.floors}
-            </span>
-          </div>)}
-          { !!products[0].info?.cabinDoor && (<div className=" flex items-start space-x-2 justify-start ">
-            <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600 whitespace-nowrap">Cửa cabin</span>
-              <span>:</span>
-            </div>
-            <span className=" text-sm font-semibold text-[#0074BC] ">
-              {products[0].info?.cabinDoor}
-            </span>
-          </div>)}
-          { !!products[0].info?.gfnf && (<div className=" flex items-start space-x-2 justify-start ">
-            <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600 whitespace-nowrap">Bao che</span>
-              <span>:</span>
-            </div>
-            <span className=" text-sm font-semibold text-[#0074BC]">
-              {products[0].info?.gfnf}
-            </span>
-          </div>)}
-          { !!products[0].info?.ceiling && (<div className=" flex items-start space-x-2 justify-start ">
-            <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600 whitespace-nowrap">Trần</span>
-              <span>:</span>
-            </div>
-            <span className=" text-sm font-semibold text-[#0074BC] ">
-              {products[0].info?.ceiling}
-            </span>
-          </div>)}
-          { !!products[0].info?.cabinFloor && (<div className=" flex items-start space-x-2 justify-start ">
-            <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600 whitespace-nowrap">Sàn cabin</span>
-              <span>:</span>
-            </div>
-            <span className=" text-sm font-semibold text-[#0074BC] ">
-              {products[0].info?.cabinFloor}
-            </span>
-          </div>)}
-          { !!products[0].info?.frontWall && (<div className=" flex items-start space-x-2 justify-start ">
-            <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600 whitespace-nowrap">Vách trước</span>
-              <span>:</span>
-            </div>
-            <span className=" text-sm font-semibold text-[#0074BC] ">
-              {products[0].info?.frontWall}
-            </span>
-          </div>)}
-          { !!products[0].info?.backWall && ( <div className=" flex items-start space-x-2 justify-start ">
-            <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600 whitespace-nowrap">Vách sau</span>
-              <span>:</span>
-            </div>
-            <span className=" text-sm font-semibold text-[#0074BC] ">
-              {products[0].info?.backWall}
-            </span>
-          </div>)}
-          { !!products[0].info?.sideWall && (<div className=" flex items-start space-x-2 justify-start ">
-            <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600 whitespace-nowrap">Vách hông</span>
-              <span>:</span>
-            </div>
-            <span className=" text-sm font-semibold text-[#0074BC] ">
-              {products[0].info?.sideWall}
-            </span>
-          </div>)}
-          { !!products[0].info?.handrail && (<div className=" flex items-start space-x-2 justify-start ">
-            <div className=" flex items-center justify-between w-[100px] ">
-              <span className=" text-sm text-slate-600 whitespace-nowrap">
-                {products[0].categoryId === "thangTaiHang"
-                  ? "Nẹp bảo vệ"
-                  : "Tay vịn"}
+          {!!products[0].id && (
+            <div className=" flex items-start space-x-2 justify-start ">
+              <div className=" flex items-center justify-between w-[100px] ">
+                <span className=" text-sm text-slate-600 whitespace-nowrap">
+                  Mã sản phẩm
+                </span>
+                <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">
+                {products[0].id}
               </span>
-              <span>:</span>
             </div>
-            <span className=" text-sm font-semibold text-[#0074BC] ">
-              {products[0].info?.handrail}
-            </span>
-          </div>)}
+          )}
+          {!!products[0].info?.lobby && (
+            <div className=" flex items-start space-x-2 justify-start ">
+              <div className=" flex items-center justify-between w-[100px] ">
+                <span className=" text-sm text-slate-600 whitespace-nowrap">
+                  Cửa tầng chính
+                </span>
+                <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">
+                {products[0].info?.lobby}
+              </span>
+            </div>
+          )}
+          {!!products[0].info?.floors && (
+            <div className=" flex items-start space-x-2 justify-start ">
+              <div className=" flex items-center justify-between w-[100px] ">
+                <span className=" text-sm text-slate-600 whitespace-nowrap">
+                  Cửa tầng khác
+                </span>
+                <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">
+                {products[0].info?.floors}
+              </span>
+            </div>
+          )}
+          {!!products[0].info?.cabinDoor && (
+            <div className=" flex items-start space-x-2 justify-start ">
+              <div className=" flex items-center justify-between w-[100px] ">
+                <span className=" text-sm text-slate-600 whitespace-nowrap">
+                  Cửa cabin
+                </span>
+                <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">
+                {products[0].info?.cabinDoor}
+              </span>
+            </div>
+          )}
+          {!!products[0].info?.gfnf && (
+            <div className=" flex items-start space-x-2 justify-start ">
+              <div className=" flex items-center justify-between w-[100px] ">
+                <span className=" text-sm text-slate-600 whitespace-nowrap">
+                  Bao che
+                </span>
+                <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC]">
+                {products[0].info?.gfnf}
+              </span>
+            </div>
+          )}
+          {!!products[0].info?.ceiling && (
+            <div className=" flex items-start space-x-2 justify-start ">
+              <div className=" flex items-center justify-between w-[100px] ">
+                <span className=" text-sm text-slate-600 whitespace-nowrap">
+                  Trần
+                </span>
+                <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">
+                {products[0].info?.ceiling}
+              </span>
+            </div>
+          )}
+          {!!products[0].info?.cabinFloor && (
+            <div className=" flex items-start space-x-2 justify-start ">
+              <div className=" flex items-center justify-between w-[100px] ">
+                <span className=" text-sm text-slate-600 whitespace-nowrap">
+                  Sàn cabin
+                </span>
+                <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">
+                {products[0].info?.cabinFloor}
+              </span>
+            </div>
+          )}
+          {!!products[0].info?.frontWall && (
+            <div className=" flex items-start space-x-2 justify-start ">
+              <div className=" flex items-center justify-between w-[100px] ">
+                <span className=" text-sm text-slate-600 whitespace-nowrap">
+                  Vách trước
+                </span>
+                <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">
+                {products[0].info?.frontWall}
+              </span>
+            </div>
+          )}
+          {!!products[0].info?.backWall && (
+            <div className=" flex items-start space-x-2 justify-start ">
+              <div className=" flex items-center justify-between w-[100px] ">
+                <span className=" text-sm text-slate-600 whitespace-nowrap">
+                  Vách sau
+                </span>
+                <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">
+                {products[0].info?.backWall}
+              </span>
+            </div>
+          )}
+          {!!products[0].info?.sideWall && (
+            <div className=" flex items-start space-x-2 justify-start ">
+              <div className=" flex items-center justify-between w-[100px] ">
+                <span className=" text-sm text-slate-600 whitespace-nowrap">
+                  Vách hông
+                </span>
+                <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">
+                {products[0].info?.sideWall}
+              </span>
+            </div>
+          )}
+          {!!products[0].info?.handrail && (
+            <div className=" flex items-start space-x-2 justify-start ">
+              <div className=" flex items-center justify-between w-[100px] ">
+                <span className=" text-sm text-slate-600 whitespace-nowrap">
+                  {products[0].categoryId === "thangTaiHang"
+                    ? "Nẹp bảo vệ"
+                    : "Tay vịn"}
+                </span>
+                <span>:</span>
+              </div>
+              <span className=" text-sm font-semibold text-[#0074BC] ">
+                {products[0].info?.handrail}
+              </span>
+            </div>
+          )}
         </Box>
         <Box className=" px-4 ">
           <div className=" flex flex-col items-center border-t-2 border-slate-400 pt-6 pb-10">
             <span className=" font-semibold text-center text-lg text-slate-700">
-            TÙY CHỌN MẪU MÃ/VẬT LIỆU
+              TÙY CHỌN MẪU MÃ/VẬT LIỆU
             </span>
             <div className=" mt-4 flex items-start space-x-2">
               <div className=" flex flex-col items-center min-w-[110px] space-y-[6px] ">
                 {selectList1.map((item) => (
                   <span
+                    key={item.id}
                     onClick={() => handleClick(item.id)}
                     className=" px-2 w-full py-1 bg-slate-300 border text-center border-[#0074BC] text-[#0074BC] rounded-lg "
                   >
@@ -809,6 +837,7 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
               <div className=" flex flex-col items-center min-w-[110px] space-y-[6px] ">
                 {selectList2.map((item) => (
                   <span
+                    key={item.id}
                     onClick={() => handleClick(item.id)}
                     className=" px-2 w-full py-1 bg-slate-300 border text-center border-[#0074BC] text-[#0074BC] rounded-lg "
                   >
@@ -818,7 +847,10 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
               </div>
             </div>
             <div className=" mt-6 bg-[#0074BC] px-4 py-1 flex flex-col items-center rounded-md">
-              <div onClick={() => navigate("/booking")} className=" text-sm text-white ">
+              <div
+                onClick={() => navigate("/booking")}
+                className=" text-sm text-white "
+              >
                 ĐẶT LỊCH TƯ VẤN
               </div>
             </div>
@@ -926,34 +958,57 @@ const ProductTemplate: FC<{ productId: string | undefined }> = ({
           handler
           swipeToClose
         >
-          <Box >
+          <Box>
             <div className=" px-6 pt-2 pb-[48px]">
-            <div className=" flex flex-col min-h-[360px]">
-              <div className=" flex items-start">
-                <span className=" text-sm w-[90px] text-slate-700 whitespace-nowrap">Mô tả vị trí :</span>
-                <div className=" w-full flex flex-wrap max-h-[210px] overflow-y-scroll">
-                  {sheetData?.moTaViTri?.map( (item, i) => (
-                    <img className=" w-[100px] aspect-square " src={item} alt={`image${i}`} />
-                  ) )}
+              <div className=" flex flex-col min-h-[360px]">
+                <div className=" flex items-start">
+                  <span className=" text-sm w-[90px] text-slate-700 whitespace-nowrap">
+                    Mô tả vị trí :
+                  </span>
+                  <div className=" w-full flex flex-wrap max-h-[210px] overflow-y-scroll">
+                    {sheetData?.moTaViTri?.map((item, i) => (
+                      <img
+                        key={i}
+                        className=" w-[100px] aspect-square "
+                        src={item}
+                        alt={`image${i}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <div className=" flex items-start ">
+                  {!!sheetData.hinhDang && sheetData.hinhDang.length > 0 && (
+                    <span className=" text-sm w-[90px] text-slate-700 whitespace-nowrap">
+                      Hình dáng :
+                    </span>
+                  )}
+                  <div className=" w-full flex flex-wrap max-h-[210px] overflow-y-scroll">
+                    {sheetData?.hinhDang?.map((item, i) => (
+                      <img
+                        key={i}
+                        className=" w-[100px] p-[6px] aspect-square "
+                        src={item}
+                        alt={`image${i}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <div className=" flex items-start ">
+                  <span className=" text-sm w-[90px] text-slate-700 whitespace-nowrap">
+                    Lựa chọn :
+                  </span>
+                  <div className=" w-full flex flex-wrap max-h-[210px] overflow-y-scroll">
+                    {sheetData?.luaChon?.map((item, i) => (
+                      <img
+                        key={i}
+                        className=" w-[100px] p-[6px] aspect-square "
+                        src={item}
+                        alt={`image${i}`}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
-              <div className=" flex items-start ">
-                {!!sheetData.hinhDang && sheetData.hinhDang.length > 0 && <span className=" text-sm w-[90px] text-slate-700 whitespace-nowrap">Hình dáng :</span>}
-                <div className=" w-full flex flex-wrap max-h-[210px] overflow-y-scroll">
-                  {sheetData?.hinhDang?.map( (item, i) => (
-                    <img className=" w-[100px] p-[6px] aspect-square " src={item} alt={`image${i}`} />
-                  ) )}
-                </div>
-              </div>
-              <div className=" flex items-start ">
-                <span className=" text-sm w-[90px] text-slate-700 whitespace-nowrap">Lựa chọn :</span>
-                <div className=" w-full flex flex-wrap max-h-[210px] overflow-y-scroll">
-                {sheetData?.luaChon?.map( (item, i) => (
-                    <img className=" w-[100px] p-[6px] aspect-square " src={item} alt={`image${i}`} />
-                  ) )}
-                </div>
-              </div>
-            </div>
             </div>
           </Box>
         </Sheet>

@@ -8,10 +8,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Box, Text } from "zmp-ui";
 import { useNavigate } from "react-router";
 import { formatNumber } from "utils/utils";
+import { openWebview } from "zmp-sdk/apis";
 
 export const RecommendContent: FC = () => {
+
   const navigate = useNavigate()
   const patterns = useRecoilValue(patternsState);
+
+  const handleClick = async (id: string) => {
+    const url = `https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/${id}.pdf`
+    try {
+      await openWebview({
+        url: url,
+      });
+    } catch (error) {
+      console.error("Failed to open location:", error);
+    }
+  }
 
   return (
     <Box className=" pt-6 pb-8 border-b-2 border-slate-200 space-y-4 ">
@@ -25,8 +38,13 @@ export const RecommendContent: FC = () => {
       </div>
       <Swiper slidesPerView={1.25} spaceBetween={12} className="px-4">
         {patterns.map((category) => (
-          <SwiperSlide key={category.lable}>
-            <div className=" relative flex flex-col items-center bg-white border-b-2 border-r border-slate-300  rounded-lg  p-2 ">
+          <SwiperSlide key={category.id}>
+            <div
+            onClick={(e) => {
+              e.preventDefault()
+              handleClick(category.id)
+            }}
+            className=" relative flex flex-col items-center bg-white border-b-2 border-r border-slate-300  rounded-lg  p-2 ">
               <div
                 className="relative w-full aspect-video rounded-lg bg-cover bg-center bg-skeleton"
                 style={{ backgroundImage: `url(${category.catalogImage})` }}
@@ -36,7 +54,6 @@ export const RecommendContent: FC = () => {
                 <span className=" text-sm text-[#0074BC] underline underline-offset-2 ">XEM</span>
                 </div>
                 <div className=" hover:bg-slate-100 px-2 " >
-                <img className=" h-[22px] aspect-square" src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/downloadIcon.png" alt={`${category.id}download`} />
                 </div>
               </div>
             </div>

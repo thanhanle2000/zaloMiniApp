@@ -7,6 +7,7 @@ import { dataByTypeState } from "state";
 import { Page, Header, Box, Text } from "zmp-ui";
 import { ProductItem } from "components/product/item";
 import { convertTimestamp } from "utils/utils";
+import { openWebview } from "zmp-sdk/apis";
 
 const lable = {
   products: "SẢN PHẨM NỔI BẬT",
@@ -25,6 +26,17 @@ export const OverviewPage: FC = () => {
   const gotoPost = (postId: string) => {
     const url = `/posts/${postId}`;
     navigate(url);
+  };
+
+  const handleClick = async (id: string) => {
+    const url = `https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/${id}.pdf`;
+    try {
+      await openWebview({
+        url: url,
+      });
+    } catch (error) {
+      console.error("Failed to open location:", error);
+    }
   };
 
   return (
@@ -60,21 +72,32 @@ export const OverviewPage: FC = () => {
             <>
               <div className=" grid grid-cols-2 gap-x-2 gap-y-4 px-4 py-8">
                 {data.map((category) => (
-                  <div className=" relative w-full flex flex-col items-center bg-white border-b border-r border-slate-300  rounded-lg  p-1 ">
+                  <div
+                    key={category.id}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleClick(category.id);
+                    }}
+                    className=" relative w-full flex flex-col items-center bg-white border-b border-r border-slate-300  rounded-lg  p-1 "
+                  >
                     <div
                       className="relative w-full aspect-video rounded-lg bg-cover bg-center bg-skeleton"
-                      style={{ backgroundImage: `url(${category.catalogImage})` }}
+                      style={{
+                        backgroundImage: `url(${category.catalogImage})`,
+                      }}
                     />
                     <div className=" flex w-full mt-1 px-4 items-center justify-between">
                       <div className=" hover:bg-slate-100 px-2 ">
-                        <span className=" text-sm text-[#0074BC] underline underline-offset-2">XEM</span>
+                        <span className=" text-sm text-[#0074BC] underline underline-offset-2">
+                          XEM
+                        </span>
                       </div>
                       <div className=" hover:bg-slate-100 px-2 ">
-                        <img
+                        {/* <img
                           className=" h-[22px] aspect-square"
                           src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/downloadIcon.png"
                           alt={`${category.id}download`}
-                        />
+                        /> */}
                       </div>
                     </div>
                   </div>
@@ -83,7 +106,15 @@ export const OverviewPage: FC = () => {
             </>
           ) : (
             <>
-              <div className={`${ type === "aboutUs" ? "flex flex-col items-center space-y-2" : type === "services" ? "flex flex-col items-center space-y-2" : "grid grid-cols-2 gap-x-2 gap-y-4" } px-2 py-8`}>
+              <div
+                className={`${
+                  type === "aboutUs"
+                    ? "flex flex-col items-center space-y-2"
+                    : type === "services"
+                    ? "flex flex-col items-center space-y-2"
+                    : "grid grid-cols-2 gap-x-2 gap-y-4"
+                } px-2 py-8`}
+              >
                 {data.map((post) => (
                   <div
                     key={post.id}
@@ -91,29 +122,35 @@ export const OverviewPage: FC = () => {
                     className=" relative flex flex-col bg-white border-b-2 border-r border-slate-300  rounded-lg  p-1 "
                   >
                     <div
-                      className={`${ type === "aboutUs" ? " min-w-[260px]" : type === "services" ? "min-w-[260px]" : "w-full" } aspect-video rounded-lg bg-cover bg-center bg-skeleton`}
+                      className={`${
+                        type === "aboutUs"
+                          ? " min-w-[260px]"
+                          : type === "services"
+                          ? "min-w-[260px]"
+                          : "w-full"
+                      } aspect-video rounded-lg bg-cover bg-center bg-skeleton`}
                       style={{ backgroundImage: `url(${post.thumbnail})` }}
                     />
-                      {type === "news" ? (
-                        <>
-                          <div className=" flex flex-col px-1 mt-2">
+                    {type === "news" ? (
+                      <>
+                        <div className=" flex flex-col px-1 mt-2">
                           <span className=" text-start text-sm font-bold text-slate-700 ">
                             {post.title}
                           </span>
                           <span className=" text-slate-500 text-sm ">
                             {convertTimestamp(post.createdAt)}
                           </span>
-                          </div>
-                        </>
-                      ) : (
-                        <>
+                        </div>
+                      </>
+                    ) : (
+                      <>
                         <div className=" flex flex-col px-1 mt-2 items-center">
-                        <span className=" text-center text-sm font-bold text-slate-700 ">
+                          <span className=" text-center text-sm font-bold text-slate-700 ">
                             {post.title}
                           </span>
-                          </div>
-                        </>
-                      )}
+                        </div>
+                      </>
+                    )}
                   </div>
                 ))}
               </div>

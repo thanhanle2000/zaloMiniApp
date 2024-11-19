@@ -123,7 +123,7 @@ export const Footer: FC = () => {
           </svg>
           <span className=" text-base font-bold">0982 739 788</span>
         </div>
-        <img className=" w-[200px]" src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/boCongThuong.png" alt="boCongThuong" />
+        {/* <img className=" w-[200px]" src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/boCongThuong.png" alt="boCongThuong" /> */}
       </div>
     </Box>
   );

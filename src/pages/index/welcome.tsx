@@ -7,8 +7,7 @@ import appConfig from "../../../app-config.json";
 import { getConfig } from "utils/config";
 
 export const Welcome: FC = () => {
-  const user = useRecoilValueLoadable(userState);
-
+  //const user = useRecoilValueLoadable(userState);
   return (
     <Header
       className="app-header no-border pl-4 flex-none pb-[6px] shadow-md "

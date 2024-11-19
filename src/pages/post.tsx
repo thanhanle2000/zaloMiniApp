@@ -37,8 +37,9 @@ export const PostPage: FC = () => {
       <Page className="flex flex-col ">
         <Header backgroundColor="#0068b2" textColor="white" title={masterTitle} />
         <Suspense>
+          
           <div className=" py-4 px-6" >
-            {posts[0].sections ? <PostItem sections={posts[0].sections} /> : (<></>)}
+            {posts[0].sections ? <PostItem sections={posts[0].sections} /> : (<> <div>Does not exist</div></>)}
           </div>
         </Suspense>
       </Page>

@@ -5,6 +5,7 @@ import { Divider } from "components/divider";
 
 const BookingContext: FC = () => {
   const [valid, setValid] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phoneNumber: "",
@@ -23,33 +24,71 @@ const BookingContext: FC = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if(!!formData.name && !!formData.phoneNumber) {
+    if (!!formData.name && !!formData.phoneNumber) {
+      setLoading(true)
+      try {
+        const SCRIPT_URL =
+          "https://script.google.com/macros/s/AKfycbyJhtV6vO374Ubg0zOMlIEoJBLUaaPe63tR7ZpiFeG-ZQybh1UmxHQBBevQiNcSHFIcwA/exec";
+        const API_TOKEN = "VIETTRI123";
 
-      console.log("Form submitted:", formData);
-      // You can add form submission logic here
-      setValid(true)
+        const requestData = {
+          ...formData,
+          token: API_TOKEN,
+        };
+
+        const response = await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: JSON.stringify(requestData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        console.log("Form submitted successfully");
+        setValid(true);
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        alert("Có lỗi xảy ra. Vui lòng thử lại sau.");
+      } finally {
+        setLoading(false)
+      }
     }
   };
 
   return (
     <Box className=" px-2 py-8 ">
       <div className=" flex flex-col items-center bg-white rounded-xl py-8 space-y-4  ">
-        {valid ? (
+        {loading ? (
+          <div className=" flex items-center justify-center">
+            <span className=" text-sm text-slate-700 italic">Đang gửi yêu cầu...</span>
+          </div>
+        ) : valid ? (
           <>
             <div className=" flex flex-col items-center">
-              <img className=" h-[60px] aspect-square" src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/checkMark.png" alt="checkMark" />
-              <span className=" text-base text-slate-800 font-semibold">ĐÃ GỬI THÀNH CÔNG</span>
+              <img
+                className=" h-[60px] aspect-square"
+                src="https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/checkMark.png"
+                alt="checkMark"
+              />
+              <span className=" text-base text-slate-800 font-semibold">
+                ĐÃ GỬI THÀNH CÔNG
+              </span>
             </div>
             <div className=" flex flex-col items-center">
-              <span className=" text-sm font-semibold text-slate-700">CẢM ƠN QUÝ KHÁCH ĐÃ TIN TƯỞNG</span>
-              <span className=" text-sm text-slate-500 italic">Việt Trí sẽ liên hệ trong thời gian sớm nhất.</span>
+              <span className=" text-sm font-semibold text-slate-700">
+                CẢM ƠN QUÝ KHÁCH ĐÃ TIN TƯỞNG
+              </span>
+              <span className=" text-sm text-slate-500 italic">
+                Việt Trí sẽ liên hệ trong thời gian sớm nhất.
+              </span>
             </div>
           </>
         ) : (
           <>
-          <span className=" text-lg font-semibold text-[#0074BC] ">
+            <span className=" text-lg font-semibold text-[#0074BC] ">
               ĐẶT LỊCH TƯ VẤN
             </span>
             <form
@@ -121,7 +160,6 @@ const BookingContext: FC = () => {
                       name="city"
                       value={formData.city}
                       onChange={handleChange}
-                      required
                     />
                   </div>
                 </div>

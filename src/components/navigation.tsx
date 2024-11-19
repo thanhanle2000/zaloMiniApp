@@ -3,6 +3,7 @@ import React, { FC, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { MenuItem } from "types/menu";
 import { BottomNavigation, Icon } from "zmp-ui";
+import { openChat } from "zmp-sdk/apis";
 import { CartIcon } from "./cart-icon";
 
 const tabs: Record<string, MenuItem> = {
@@ -33,17 +34,25 @@ export const Navigation: FC = () => {
   const keyboardVisible = useVirtualKeyboardVisible();
   const navigate = useNavigate();
   const location = useLocation();
-  const handleClick = (path: string) => {
-    if(path.includes("messeger")) {
-      window.location.href = 'https://zalo.me/239837943299975253';
+  const handleClick = async (path: string) => {
+    if (path.includes("messeger")) {
+      try {
+        await openChat({
+          type: "oa",
+          id: "3022539273724394240", // Your OA ID
+          message: "Xin chào", // Optional initial message
+        });
+      } catch (error) {
+        console.error("Failed to open chat:", error);
+      }
+    } else {
+      navigate(path);
     }
-    navigate(path)
-  }
+  };
 
   const noBottomNav = useMemo(() => {
     return NO_BOTTOM_NAVIGATION_PAGES.includes(location.pathname);
   }, [location]);
-
   if (noBottomNav || keyboardVisible) {
     return <></>;
   }

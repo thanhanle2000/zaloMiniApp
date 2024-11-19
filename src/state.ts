@@ -1,5 +1,5 @@
 import { atom, selector, selectorFamily } from "recoil";
-import { getLocation, getPhoneNumber, getUserInfo } from "zmp-sdk";
+import { getLocation, authorize, getPhoneNumber, getUserInfo } from "zmp-sdk";
 import logo from "static/logo.png";
 import { Category } from "types/category";
 import {
@@ -27,7 +27,7 @@ export const userState = selector({
       return userInfo;
     } catch (error) {
       return {
-        id: "000000",
+        id: "",
         avatar:
           "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/logoAvatar.png",
         name: "Người dùng Zalo",
