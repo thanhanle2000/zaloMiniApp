@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FC } from "react";
 import { Box, Text } from "zmp-ui";
 import {
@@ -6,15 +6,47 @@ import {
   useRecoilValueLoadable,
   useSetRecoilState,
 } from "recoil";
-import { categoriesState, selectedCategoryIdState, userState } from "state";
+import {
+  categoriesState,
+  selectedCategoryIdState,
+  userInfoState,
+  userState,
+} from "state";
 import { useNavigate } from "react-router";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { authorize } from "zmp-sdk/apis";
+import { getUserInfo } from "zmp-sdk";
 
 export const Categories: FC = () => {
   const categories = useRecoilValue(categoriesState);
-  const user = useRecoilValueLoadable(userState);
+  const user = useRecoilValue(userInfoState);
   const navigate = useNavigate();
   const setSelectedCategoryId = useSetRecoilState(selectedCategoryIdState);
+  const setUserInfo = useSetRecoilState(userInfoState);
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const { userInfo } = await getUserInfo();
+        setUserInfo(userInfo);
+      } catch (error) {
+        console.error("Authorization or chat opening failed:", error);
+      }
+    };
+    fetchUserInfo();
+  }, []);
+
+  const handleClick = async () => {
+    try {
+      const data = await authorize({
+        scopes: ["scope.userInfo"], // Add necessary scopes
+      });
+      const { userInfo } = await getUserInfo();
+      setUserInfo(userInfo);
+    } catch (error) {
+      console.error("Authorization or chat opening failed:", error);
+    }
+  };
 
   const gotoCategory = (categoryType: string, categoryId: string) => {
     if (categoryType === "products") {
@@ -50,17 +82,32 @@ export const Categories: FC = () => {
   return (
     <Box className=" flex flex-col pt-8 pb-10 bg-slate-100 px-4">
       <Box className=" flex items-center space-x-4 px-4">
-        <div className=" relative rounded-full">
-          <img
-            className=" w-[60px] rounded-full aspect-square"
-            src={user.state === "hasValue" ? user.contents.avatar : "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/logoAvatar.png"}
-            alt="avatar"
-          />
-          <div className=" absolute bottom-2 right-0 w-[12px] aspect-square bg-green rounded-full "></div>
-        </div>
-        <span className=" text-base text-slate-600 font-semibold">
-          {user.state === "hasValue" ? user.contents.name : ". . ."}
-        </span>
+        {!!user.id ? (
+          <>
+            <div className=" relative rounded-full">
+              <img
+                className=" w-[60px] rounded-full aspect-square"
+                src={user.avatar}
+                alt="avatar"
+              />
+              <div className=" absolute bottom-2 right-0 w-[12px] aspect-square bg-green rounded-full "></div>
+            </div>
+            <span className=" text-base text-slate-600 font-semibold">
+              {user.name}
+            </span>
+          </>
+        ) : (
+          <>
+            <div>
+              <div
+                onClick={handleClick}
+                className=" text-sm bg-white border border-slate-300 text-[#0074BC] px-4 py-2 hover:bg-slate-200 rounded-md"
+              >
+                Đăng ký thành viên
+              </div>
+            </div>
+          </>
+        )}
       </Box>
       <Box className=" mt-6 grid grid-cols-4 gap-x-2 gap-y-4">
         {categories

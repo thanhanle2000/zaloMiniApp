@@ -23,7 +23,7 @@ export const userState = selector({
   key: "user",
   get: async () => {
     try {
-      const { userInfo } = await getUserInfo({ autoRequestPermission: true });
+      const { userInfo } = await getUserInfo();
       return userInfo;
     } catch (error) {
       return {
@@ -183,6 +183,15 @@ export const aboutUsState = selector<Post[]>({
 export const selectedCategoryIdState = atom({
   key: "selectedCategoryId",
   default: "thangTaiKhach",
+});
+
+export const userInfoState = atom({
+  key: "userInfo",
+  default: {
+    id: "",
+    avatar: "",
+    name: "",
+  },
 });
 
 export const selectedPatternIdState = atom({

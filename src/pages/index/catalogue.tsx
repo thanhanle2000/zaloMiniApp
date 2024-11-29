@@ -16,14 +16,15 @@ export const RecommendContent: FC = () => {
   const patterns = useRecoilValue(patternsState);
 
   const handleClick = async (id: string) => {
-    const url = `https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/${id}.pdf`
-    try {
-      await openWebview({
-        url: url,
-      });
-    } catch (error) {
-      console.error("Failed to open location:", error);
-    }
+    navigate(`/pdfViewer/${id}`)
+    // const url = `https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/${id}.pdf`
+    // try {
+    //   await openWebview({
+    //     url: url,
+    //   });
+    // } catch (error) {
+    //   console.error("Failed to open location:", error);
+    // }
   }
 
   return (

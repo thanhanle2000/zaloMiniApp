@@ -2,8 +2,11 @@ import React, { FC } from "react";
 import { Box, Text } from "zmp-ui";
 import { useNavigate } from "react-router";
 import { openWebview, openChat, openPhone } from "zmp-sdk/apis";
+import { useRecoilValue } from "recoil";
+import { userInfoState } from "state";
 
 export const Contact: FC<{}> = ({}) => {
+  const user = useRecoilValue(userInfoState);
   const handleLocation = async () => {
     try {
       await openWebview({
@@ -16,11 +19,17 @@ export const Contact: FC<{}> = ({}) => {
 
   const handleChat = async () => {
     try {
-      await openChat({
-        type: "oa",
-        id: "3022539273724394240",
-        message: "Xin chào",
-      });
+      if(!!user.id) {
+        await openChat({
+          type: "oa",
+          id: "3022539273724394240", // Your OA ID
+          message: "Xin chào", // Optional initial message
+        });
+      } else {
+        await openWebview({
+          url: "https://zalo.me/viettriofficial",
+        });
+      }
     } catch (error) {
       console.error("Failed to open chat:", error);
     }

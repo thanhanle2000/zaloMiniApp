@@ -18,6 +18,7 @@ import { CaiTaoThangMayPage } from "pages/caiTaoThangMay";
 import { Contact } from "./contact";
 import BookingPage from "pages/booking";
 import PassElevatorPage from "pages/passElevator";
+import { PdfViewerPage } from "pages/pdfViewer";
 
 if (getSystemInfo().platform === "android") {
   const androidSafeTop = Math.round(
@@ -44,6 +45,7 @@ export const Layout: FC = () => {
           <Route path="/notification" element={<NotificationPage />}></Route>
           <Route path="/booking" element={<BookingPage />}></Route>
           <Route path="/posts/:postId" element={<PostPage />} ></Route>
+          <Route path="/pdfViewer/:postId" element={<PdfViewerPage />} ></Route>
           <Route path="/overview/:type" element={<OverviewPage />}></Route>
           <Route path="/elevator/:productId" element={<PassElevatorPage />}></Route>
           <Route path="/events" element={<EventsPage/>}></Route>
