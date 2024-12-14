@@ -1,5 +1,4 @@
 import { atom, selector, selectorFamily } from "recoil";
-import { getLocation, authorize, getPhoneNumber, getUserInfo } from "zmp-sdk";
 import logo from "static/logo.png";
 import { Category } from "types/category";
 import {
@@ -18,21 +17,55 @@ import { wait } from "utils/async";
 import categories from "../mock/categories.json";
 import productsCategory from "../mock/productsCategory.json";
 import patterns from "../mock/patterns.json";
+import { getUserID, getUserInfo, getPhoneNumber } from "zmp-sdk/apis";
+
+
+export const existState = selector<boolean>({
+  key: "exist",
+  get: async ({get}) => {
+    try {
+      let userID = await getUserID()
+      // if(!userID) {
+      //   userID = "3368637342326461234563456"
+      // }
+      console.log(`userID is : ${userID}`)
+      if(userID){
+        const res = await fetch(`https://viet_tri_api.mkt-viettri.workers.dev/api/users/${userID}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `VIETTRI123`
+          },
+        })
+        if(res.ok){
+          const data = await res.json()
+          if(data.id) {
+            return true
+          }
+        }
+      }
+      return false
+
+    } catch (error) {
+      return false
+    }
+  }
+  });
+
+export const userInfoState = atom({
+  key: "userInfo",
+  default: {
+    id: "",
+    name: "",
+    avatar: "",
+  }
+})
 
 export const userState = selector({
   key: "user",
   get: async () => {
-    try {
-      const { userInfo } = await getUserInfo();
-      return userInfo;
-    } catch (error) {
-      return {
-        id: "",
-        avatar:
-          "https://pub-4076f91e2c23424590fb9b7fe99e41b5.r2.dev/logoAvatar.png",
-        name: "Người dùng Zalo",
-      };
-    }
+    const { userInfo } = await getUserInfo({ autoRequestPermission: true });
+    return userInfo;
   },
 });
 
@@ -185,14 +218,6 @@ export const selectedCategoryIdState = atom({
   default: "thangTaiKhach",
 });
 
-export const userInfoState = atom({
-  key: "userInfo",
-  default: {
-    id: "",
-    avatar: "",
-    name: "",
-  },
-});
 
 export const selectedPatternIdState = atom({
   key: "selectedPatternId",

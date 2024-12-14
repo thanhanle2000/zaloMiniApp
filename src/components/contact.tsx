@@ -3,7 +3,7 @@ import { Box, Text } from "zmp-ui";
 import { useNavigate } from "react-router";
 import { openWebview, openChat, openPhone } from "zmp-sdk/apis";
 import { useRecoilValue } from "recoil";
-import { userInfoState } from "state";
+import { userInfoState, userState } from "state";
 
 export const Contact: FC<{}> = ({}) => {
   const user = useRecoilValue(userInfoState);

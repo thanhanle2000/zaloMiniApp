@@ -6,7 +6,7 @@ import { BottomNavigation, Icon } from "zmp-ui";
 import { openChat, openWebview } from "zmp-sdk/apis";
 import { CartIcon } from "./cart-icon";
 import { useRecoilValue } from "recoil";
-import { userInfoState } from "state";
+import { userInfoState, userState } from "state";
 
 const tabs: Record<string, MenuItem> = {
   "/": {

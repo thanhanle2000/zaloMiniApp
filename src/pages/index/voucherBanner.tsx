@@ -5,7 +5,7 @@ import { userState } from "state";
 
 export const VoucherBanner: FC = () => {
 
-  const userInfo = useRecoilValue(userState)
+  const userInfo = useRecoilValue(userState(true))
 
   return (
     <Box className="relative" p={4} pt={6}>

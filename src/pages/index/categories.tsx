@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { FC } from "react";
 import { Box, Text } from "zmp-ui";
 import {
+  useRecoilCallback,
+  useRecoilState,
   useRecoilValue,
   useRecoilValueLoadable,
   useSetRecoilState,
 } from "recoil";
 import {
   categoriesState,
+  existState,
   selectedCategoryIdState,
   userInfoState,
   userState,
@@ -17,36 +20,50 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { authorize } from "zmp-sdk/apis";
 import { getUserInfo } from "zmp-sdk";
 
+
 export const Categories: FC = () => {
+  const [user, setUser] = useRecoilState(userInfoState)
   const categories = useRecoilValue(categoriesState);
-  const user = useRecoilValue(userInfoState);
+  const exist = useRecoilValue(existState) 
   const navigate = useNavigate();
   const setSelectedCategoryId = useSetRecoilState(selectedCategoryIdState);
-  const setUserInfo = useSetRecoilState(userInfoState);
-
+  const requestUserInfo = useRecoilCallback(
+    ({ snapshot }) =>
+      async () => {
+        const userInfo = await snapshot.getPromise(userState);
+        if(userInfo.id && !exist) {
+          const body =  {
+            id: userInfo.id,
+            name: userInfo.name,
+            image: userInfo.avatar,
+            companyRole1: "visiter"
+          }
+          try {
+            const res = await fetch(`https://viet_tri_api.mkt-viettri.workers.dev/api/users/create`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `VIETTRI123`
+              },
+              body: JSON.stringify(body)
+            })
+          } catch (error) {
+            console.log(error)
+          }
+          
+        }
+        setUser(userInfo)
+      },
+    []
+  );
   useEffect(() => {
-    const fetchUserInfo = async () => {
-      try {
-        const { userInfo } = await getUserInfo();
-        setUserInfo(userInfo);
-      } catch (error) {
-        console.error("Authorization or chat opening failed:", error);
+    if(!user.id) {
+      if(exist) {
+        requestUserInfo()
       }
-    };
-    fetchUserInfo();
-  }, []);
-
-  const handleClick = async () => {
-    try {
-      const data = await authorize({
-        scopes: ["scope.userInfo"], // Add necessary scopes
-      });
-      const { userInfo } = await getUserInfo();
-      setUserInfo(userInfo);
-    } catch (error) {
-      console.error("Authorization or chat opening failed:", error);
     }
-  };
+  }, [])
+
 
   const gotoCategory = (categoryType: string, categoryId: string) => {
     if (categoryType === "products") {
@@ -82,7 +99,7 @@ export const Categories: FC = () => {
   return (
     <Box className=" flex flex-col pt-8 pb-10 bg-slate-100 px-4">
       <Box className=" flex items-center space-x-4 px-4">
-        {!!user.id ? (
+      { user.id ? (
           <>
             <div className=" relative rounded-full">
               <img
@@ -100,7 +117,7 @@ export const Categories: FC = () => {
           <>
             <div>
               <div
-                onClick={handleClick}
+                onClick={requestUserInfo}
                 className=" text-sm bg-white border border-slate-300 text-[#0074BC] px-4 py-2 hover:bg-slate-200 rounded-md"
               >
                 Đăng ký thành viên
