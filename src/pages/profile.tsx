@@ -1,50 +1,54 @@
 import React, { FC, useEffect, useState } from "react";
 import { useRecoilCallback, useRecoilState, useRecoilValue, useRecoilValueLoadable, useSetRecoilState } from "recoil";
-import { existState, profileState, userInfoState, userState } from "state";
+import {  profileState, userInfoState, userState } from "state";
 import { Box, Header, Page, Text } from "zmp-ui";
 import { Divider } from "components/divider";
 import { authorize, getUserInfo } from "zmp-sdk/apis";
 
 const ProfileContext: FC = () => {
   const profile = useRecoilValue(profileState);
-  const exist = useRecoilValue(existState)
   const [user, setUser] = useRecoilState(userInfoState)
-  const requestUserInfo = useRecoilCallback(
-    ({ snapshot }) =>
-      async () => {
-        const userInfo = await snapshot.getPromise(userState);
-        if(userInfo.id && !exist) {
-          const body =  {
-            id: userInfo.id,
-            name: userInfo.name,
-            image: userInfo.avatar,
-            companyRole1: "visiter"
-          }
-          try {
-            const res = await fetch(`https://viet_tri_api.mkt-viettri.workers.dev/api/users/create`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `VIETTRI123`
-              },
-              body: JSON.stringify(body)
-            })
-          } catch (error) {
-            console.log(error)
-          }
-          
-        }
+  const existUser = useRecoilValue(userState) 
+
+  const handleUpdateUser = async (userInfo: any) => {
+    const body =  {
+      id: userInfo.id,
+      name: userInfo.name,
+      image: userInfo.avatar,
+      companyRole1: "visiter"
+    }
+    try {
+      const res = await fetch(`https://viet_tri_api.mkt-viettri.workers.dev/api/users/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `VIETTRI123`
+        },
+        body: JSON.stringify(body)
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handleClick = async () => {
+    if(!existUser.id) {
+      const { userInfo } = await getUserInfo({ autoRequestPermission: true });
+      if(userInfo.id) {
         setUser(userInfo)
-      },
-    []
-  );
+        await handleUpdateUser(userInfo)
+      }
+    }
+  }
+
   useEffect(() => {
     if(!user.id) {
-      if(exist) {
-        requestUserInfo()
+      if(existUser.id) {
+        setUser(existUser)
       }
     }
   }, [])
+
   
   return (
     <Box className=" px-4 py-4">
@@ -83,7 +87,7 @@ const ProfileContext: FC = () => {
           <>
             <div className=" flex flex-col items-center justify-center">
               <div
-                onClick={requestUserInfo}
+                onClick={async () => { await handleClick()}}
                 className=" w-fit text-sm bg-white border border-slate-300 text-[#0074BC] px-4 py-2 hover:bg-slate-200 rounded-md"
               >
                 Đăng ký thành viên

@@ -10,7 +10,6 @@ import {
 } from "recoil";
 import {
   categoriesState,
-  existState,
   selectedCategoryIdState,
   userInfoState,
   userState,
@@ -22,44 +21,49 @@ import { getUserInfo } from "zmp-sdk";
 
 
 export const Categories: FC = () => {
+
   const [user, setUser] = useRecoilState(userInfoState)
   const categories = useRecoilValue(categoriesState);
-  const exist = useRecoilValue(existState) 
+  const existUser = useRecoilValue(userState) 
   const navigate = useNavigate();
   const setSelectedCategoryId = useSetRecoilState(selectedCategoryIdState);
-  const requestUserInfo = useRecoilCallback(
-    ({ snapshot }) =>
-      async () => {
-        const userInfo = await snapshot.getPromise(userState);
-        if(userInfo.id && !exist) {
-          const body =  {
-            id: userInfo.id,
-            name: userInfo.name,
-            image: userInfo.avatar,
-            companyRole1: "visiter"
-          }
-          try {
-            const res = await fetch(`https://viet_tri_api.mkt-viettri.workers.dev/api/users/create`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `VIETTRI123`
-              },
-              body: JSON.stringify(body)
-            })
-          } catch (error) {
-            console.log(error)
-          }
-          
-        }
+
+  const handleUpdateUser = async (userInfo: any) => {
+    const body =  {
+      id: userInfo.id,
+      name: userInfo.name,
+      image: userInfo.avatar,
+      companyRole1: "visiter"
+    }
+    try {
+      const res = await fetch(`https://viet_tri_api.mkt-viettri.workers.dev/api/users/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `VIETTRI123`
+        },
+        body: JSON.stringify(body)
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  
+  const handleClick = async () => {
+    if(!existUser.id) {
+      const { userInfo } = await getUserInfo({ autoRequestPermission: true });
+      if(userInfo.id) {
         setUser(userInfo)
-      },
-    []
-  );
+        await handleUpdateUser(userInfo)
+      }
+    }
+  }
+
   useEffect(() => {
     if(!user.id) {
-      if(exist) {
-        requestUserInfo()
+      if(existUser.id) {
+        setUser(existUser)
       }
     }
   }, [])
@@ -117,7 +121,7 @@ export const Categories: FC = () => {
           <>
             <div>
               <div
-                onClick={requestUserInfo}
+                onClick={async () => { await handleClick()}}
                 className=" text-sm bg-white border border-slate-300 text-[#0074BC] px-4 py-2 hover:bg-slate-200 rounded-md"
               >
                 Đăng ký thành viên

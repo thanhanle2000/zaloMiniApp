@@ -20,37 +20,37 @@ import patterns from "../mock/patterns.json";
 import { getUserID, getUserInfo, getPhoneNumber } from "zmp-sdk/apis";
 
 
-export const existState = selector<boolean>({
-  key: "exist",
-  get: async ({get}) => {
-    try {
-      let userID = await getUserID()
-      // if(!userID) {
-      //   userID = "3368637342326461234563456"
-      // }
-      console.log(`userID is : ${userID}`)
-      if(userID){
-        const res = await fetch(`https://viet_tri_api.mkt-viettri.workers.dev/api/users/${userID}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `VIETTRI123`
-          },
-        })
-        if(res.ok){
-          const data = await res.json()
-          if(data.id) {
-            return true
-          }
-        }
-      }
-      return false
+// export const existState = selector<boolean>({
+//   key: "exist",
+//   get: async ({get}) => {
+//     try {
+//       let userID = await getUserID()
+//       // if(!userID) {
+//       //   userID = "3368637342326461234563456"
+//       // }
+//       console.log(`userID is : ${userID}`)
+//       if(userID){
+//         const res = await fetch(`https://viet_tri_api.mkt-viettri.workers.dev/api/users/${userID}`, {
+//           method: "GET",
+//           headers: {
+//             "Content-Type": "application/json",
+//             Authorization: `VIETTRI123`
+//           },
+//         })
+//         if(res.ok){
+//           const data = await res.json()
+//           if(data.id) {
+//             return true
+//           }
+//         }
+//       }
+//       return false
 
-    } catch (error) {
-      return false
-    }
-  }
-  });
+//     } catch (error) {
+//       return false
+//     }
+//   }
+//   });
 
 export const userInfoState = atom({
   key: "userInfo",
@@ -64,8 +64,37 @@ export const userInfoState = atom({
 export const userState = selector({
   key: "user",
   get: async () => {
-    const { userInfo } = await getUserInfo({ autoRequestPermission: true });
-    return userInfo;
+    try {
+      let userID = await getUserID()
+      // userID = "3368637342326461234" 
+      if(userID){
+        const res = await fetch(`https://viet_tri_api.mkt-viettri.workers.dev/api/users/${userID}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `VIETTRI123`
+          },
+        })
+        if(res.ok){
+          const data = await res.json()
+          if(data.id) {
+            const { userInfo } = await getUserInfo({ autoRequestPermission: true });
+            return userInfo;
+          }
+        }
+      }
+      return {
+        id: "",
+        name: "",
+        avatar: "",
+      }
+    } catch (error) {
+      return {
+        id: "",
+        name: "",
+        avatar: "",
+      }
+    }
   },
 });
 
