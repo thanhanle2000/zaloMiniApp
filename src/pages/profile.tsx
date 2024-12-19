@@ -1,55 +1,73 @@
-import React, { FC, useEffect, useState } from "react";
-import { useRecoilCallback, useRecoilState, useRecoilValue, useRecoilValueLoadable, useSetRecoilState } from "recoil";
-import {  profileState, userInfoState, userState } from "state";
-import { Box, Header, Page, Text } from "zmp-ui";
 import { Divider } from "components/divider";
-import { authorize, getUserInfo } from "zmp-sdk/apis";
+import React, { FC, useEffect } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { profileState, userInfoState, userState } from "state";
+import { getUserInfo } from "zmp-sdk/apis";
+import { Box, Header, Page } from "zmp-ui";
 
 const ProfileContext: FC = () => {
-  const profile = useRecoilValue(profileState);
+  // STATE
   const [user, setUser] = useRecoilState(userInfoState)
-  const existUser = useRecoilValue(userState) 
 
+  // RECOIL
+  const profile = useRecoilValue(profileState);
+  const existUser = useRecoilValue(userState)
+
+  // API URL & HEADERS
+  const API_URL = `https://viet_tri_api.mkt-viettri.workers.dev/api/users/create`;
+  const API_HEADERS = {
+    "Content-Type": "application/json",
+    Authorization: "VIETTRI123",
+  };
+
+  // HANDLE UPDATE USER
   const handleUpdateUser = async (userInfo: any) => {
-    const body =  {
-      id: userInfo.id,
-      name: userInfo.name,
-      image: userInfo.avatar,
-      companyRole1: "visiter"
-    }
+    // BODY
+    const body = {
+      id: userInfo?.id,
+      name: userInfo?.name,
+      image: userInfo?.avatar,
+      companyRole1: "visiter",
+    };
+
+    console.log(`body profile`, body)
+
     try {
-      const res = await fetch(`https://viet_tri_api.mkt-viettri.workers.dev/api/users/create`, {
+      // RESPONSE
+      const response = await fetch(API_URL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `VIETTRI123`
-        },
-        body: JSON.stringify(body)
-      })
+        headers: API_HEADERS,
+        body: JSON?.stringify(body),
+      });
+
+      if (!response.ok)
+        console.error("Failed to update user:", await response.text());
     } catch (error) {
-      console.log(error)
+      console.error("Error updating user:", error);
     }
-  }
+  };
 
+  // HANDLE CLICK
   const handleClick = async () => {
-    if(!existUser.id) {
+    if (existUser?.id) return;
+
+    try {
       const { userInfo } = await getUserInfo({ autoRequestPermission: true });
-      if(userInfo.id) {
-        setUser(userInfo)
-        await handleUpdateUser(userInfo)
-      }
-    }
-  }
 
+      if (userInfo?.id) {
+        setUser(userInfo);
+        await handleUpdateUser(userInfo);
+      }
+    } catch (error) {
+      console.error("Error fetching user info:", error);
+    }
+  };
+
+  // USE EFFECT
   useEffect(() => {
-    if(!user.id) {
-      if(existUser.id) {
-        setUser(existUser)
-      }
-    }
-  }, [])
+    if (!user?.id && existUser?.id) setUser(existUser);
+  }, [user?.id, existUser?.id]);
 
-  
   return (
     <Box className=" px-4 py-4">
       <Box className=" flex flex-col space-y-2 px-2 py-4 bg-white rounded-md">
@@ -58,28 +76,27 @@ const ProfileContext: FC = () => {
             THÔNG TIN NGƯỜI DÙNG
           </span>
         </div>
-        { user.id ? (
+        {user?.id ? (
           <>
             <div className=" flex items-center space-x-4 px-4 ">
               <span className=" text-base text-slate-600 min-w-[100px]">
-                {" "}
-                Avatar:{" "}
+                Avatar:
               </span>
               <div className=" relative rounded-full">
                 <img
                   className=" w-[60px] rounded-full aspect-square"
-                  src={user.avatar}
+                  src={user?.avatar}
                   alt="avatar"
                 />
-                <div className=" absolute bottom-2 right-0 w-[12px] aspect-square bg-green rounded-full "></div>
+                <div className=" absolute bottom-2 right-0 w-[12px] aspect-square bg-green rounded-full"></div>
               </div>
             </div>
             <div className=" flex items-center space-x-4 px-4 ">
               <span className=" text-base text-slate-600 min-w-[100px]">
-                Nickname :
+                Nickname:
               </span>
               <span className=" text-base text-slate-600 font-semibold">
-                {user.name}
+                {user?.name}
               </span>
             </div>
           </>
@@ -87,7 +104,7 @@ const ProfileContext: FC = () => {
           <>
             <div className=" flex flex-col items-center justify-center">
               <div
-                onClick={async () => { await handleClick()}}
+                onClick={handleClick}
                 className=" w-fit text-sm bg-white border border-slate-300 text-[#0074BC] px-4 py-2 hover:bg-slate-200 rounded-md"
               >
                 Đăng ký thành viên

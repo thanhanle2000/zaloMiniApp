@@ -67,7 +67,7 @@ export const userState = selector({
     try {
       let userID = await getUserID()
       // userID = "3368637342326461234" 
-      if(userID){
+      if (userID) {
         const res = await fetch(`https://viet_tri_api.mkt-viettri.workers.dev/api/users/${userID}`, {
           method: "GET",
           headers: {
@@ -75,9 +75,9 @@ export const userState = selector({
             Authorization: `VIETTRI123`
           },
         })
-        if(res.ok){
+        if (res.ok) {
           const data = await res.json()
-          if(data.id) {
+          if (data.id) {
             const { userInfo } = await getUserInfo({ autoRequestPermission: true });
             return userInfo;
           }
@@ -257,39 +257,39 @@ export const productsByCategoryState = selectorFamily<Product[], string>({
   key: "productsByCategory",
   get:
     (categoryId) =>
-    async ({ get }) => {
-      const res = await fetch(
-        `https://viet_tri_api.mkt-viettri.workers.dev/api/products/${categoryId}`,
-        {
-          method: "GET",
+      async ({ get }) => {
+        const res = await fetch(
+          `https://viet_tri_api.mkt-viettri.workers.dev/api/products/${categoryId}`,
+          {
+            method: "GET",
+          }
+        );
+        console.log(res)
+        if (res.ok) {
+          return res.json();
+        } else {
+          return [];
         }
-      );
-      console.log(res)
-      if (res.ok) {
-        return res.json();
-      } else {
-        return [];
-      }
-    },
+      },
 });
 
 export const patternsByCategoryState = selectorFamily<PatternItem[], string>({
   key: "patternsByCategory",
   get:
     (categoryId) =>
-    async ({ get }) => {
-      const res = await fetch(
-        `https://viet_tri_api.mkt-viettri.workers.dev/api/patterns/${categoryId}`,
-        {
-          method: "GET",
+      async ({ get }) => {
+        const res = await fetch(
+          `https://viet_tri_api.mkt-viettri.workers.dev/api/patterns/${categoryId}`,
+          {
+            method: "GET",
+          }
+        );
+        if (res.ok) {
+          return res.json();
+        } else {
+          return [];
         }
-      );
-      if (res.ok) {
-        return res.json();
-      } else {
-        return [];
-      }
-    },
+      },
 });
 
 export const dataByTypeState = selectorFamily<
@@ -299,45 +299,45 @@ export const dataByTypeState = selectorFamily<
   key: "dataByType",
   get:
     (type) =>
-    ({ get }) => {
-      switch (type) {
-        case "products":
-          const productsList = get(productsState);
-          return productsList;
-        case "ELITE":
-          const eliteProducts = get(productsState);
-          return eliteProducts.filter(product => product.subCategory === "elite")
-        case "LUXURY":
-          const luxuryProducts = get(productsState);
-          return luxuryProducts.filter(product => product.subCategory === "luxury")
-        case "PREMIUM":
-          const premiumProducts =get(productsState);
-          return premiumProducts.filter(product => product.subCategory === "premium")
-        case "PANORAMA":
-          const panoramaProducts = get(productsState)
-          return panoramaProducts.filter(product => product.subCategory === "panorama")
-        case "deal":
-          const products = get(recommendProductsState);
-          return products;
-        case "catalogue":
-          const catalogs = get(patternsState);
-          return catalogs;
-        case "projects":
-          const projects = get(projectsState);
-          return projects;
-        case "news":
-          const news = get(newsState);
-          return news;
-        case "services":
-          const services = get(servicesState);
-          return services;
-        case "aboutUs":
-          const aboutUs = get(aboutUsState);
-          return aboutUs;
-        default:
-          return [];
-      }
-    },
+      ({ get }) => {
+        switch (type) {
+          case "products":
+            const productsList = get(productsState);
+            return productsList;
+          case "ELITE":
+            const eliteProducts = get(productsState);
+            return eliteProducts.filter(product => product.subCategory === "elite")
+          case "LUXURY":
+            const luxuryProducts = get(productsState);
+            return luxuryProducts.filter(product => product.subCategory === "luxury")
+          case "PREMIUM":
+            const premiumProducts = get(productsState);
+            return premiumProducts.filter(product => product.subCategory === "premium")
+          case "PANORAMA":
+            const panoramaProducts = get(productsState)
+            return panoramaProducts.filter(product => product.subCategory === "panorama")
+          case "deal":
+            const products = get(recommendProductsState);
+            return products;
+          case "catalogue":
+            const catalogs = get(patternsState);
+            return catalogs;
+          case "projects":
+            const projects = get(projectsState);
+            return projects;
+          case "news":
+            const news = get(newsState);
+            return news;
+          case "services":
+            const services = get(servicesState);
+            return services;
+          case "aboutUs":
+            const aboutUs = get(aboutUsState);
+            return aboutUs;
+          default:
+            return [];
+        }
+      },
 });
 
 
@@ -345,44 +345,44 @@ export const postByIdState = selectorFamily<Post[], string | undefined>({
   key: "postById",
   get:
     (postId) =>
-    ({ get }) => {
-      if (postId?.includes("VTEA")) {
-        const aboutUs = get(aboutUsState);
-        return aboutUs.filter((posts) => posts.id === postId);
-      }
-      if (postId?.includes("VTEN")) {
-        const news = get(newsState);
-        return news.filter((posts) => posts.id === postId);
-      }
-      if (postId?.includes("VTES")) {
-        const services = get(servicesState);
-        return services.filter((posts) => posts.id === postId);
-      }
-      if (postId?.includes("VTEP")) {
-        const projects = get(projectsState);
-        return projects.filter((posts) => posts.id === postId);
-      }
-      return [];
-    },
+      ({ get }) => {
+        if (postId?.includes("VTEA")) {
+          const aboutUs = get(aboutUsState);
+          return aboutUs.filter((posts) => posts.id === postId);
+        }
+        if (postId?.includes("VTEN")) {
+          const news = get(newsState);
+          return news.filter((posts) => posts.id === postId);
+        }
+        if (postId?.includes("VTES")) {
+          const services = get(servicesState);
+          return services.filter((posts) => posts.id === postId);
+        }
+        if (postId?.includes("VTEP")) {
+          const projects = get(projectsState);
+          return projects.filter((posts) => posts.id === postId);
+        }
+        return [];
+      },
 });
 
 export const productByIdState = selectorFamily<Product, string | undefined>({
   key: "productById",
   get:
     (productId) =>
-    async ({ get }) => {
-      const res = await fetch(
-        `https://viet_tri_api.mkt-viettri.workers.dev/api/products/search/params?id=${productId}`,
-        {
-          method: "GET",
+      async ({ get }) => {
+        const res = await fetch(
+          `https://viet_tri_api.mkt-viettri.workers.dev/api/products/search/params?id=${productId}`,
+          {
+            method: "GET",
+          }
+        );
+        if (res.ok) {
+          return res.json();
+        } else {
+          return {};
         }
-      );
-      if (res.ok) {
-        return res.json();
-      } else {
-        return {};
-      }
-    },
+      },
 });
 
 export const cartState = atom<any[]>({
